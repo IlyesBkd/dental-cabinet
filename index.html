@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cabinet Dentaire Villabé — Dr Toupenay &amp; Dr Sougoumarin</title>
+<meta name="description" content="Cabinet de chirurgie et de médecine bucco-dentaire à Villabé (Essonne). 300 m² dédiés aux soins, à l'implantologie et à la chirurgie orale.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:#0A192F; --navy2:#0E2742; --blue:#1E3A8A; --blue2:#2D6CDF; --blue-l:#9FC0F0;
+    --cream:#ECE7DF; --ink:#14181B;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Archivo', -apple-system, sans-serif; color: #E8EEF6; background: var(--navy); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  ::selection { background: var(--navy); color: #fff; }
+  img { display: block; }
+  section[id], footer[id] { scroll-margin-top: 80px; }
+  /* Lenis smooth scroll */
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+  .lenis.lenis-stopped { overflow: hidden; }
+  @keyframes floatUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+  .display { font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.98; }
+  .eyebrow { display: inline-block; font-size: 12.5px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--blue-l); }
+  /* Vimeo background video — true cover (no letterbox bars) */
+  .hero-video { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 100vw; height: 56.25vw; min-height: 100vh; min-width: 177.78vh; border: 0; pointer-events: none; }
+
+  /* ---------- header hover states ---------- */
+  .navcenter a { white-space: nowrap; }
+  .nav-active:hover { background: rgba(255,255,255,0.16) !important; }
+  .nav-link:hover   { background: rgba(255,255,255,0.07) !important; color: #fff !important; }
+  .icon-tab:hover   { background: rgba(255,255,255,0.16) !important; }
+  .phone-cta:hover  { background: #274aa8 !important; }
+  .flink:hover      { color: #fff !important; }
+  @media (max-width: 1040px) { .navcenter { display: none !important; } }
+  @media (max-width: 860px) {
+    .herobottom { flex-direction: column !important; align-items: stretch !important; }
+    .heromuted { max-width: none !important; }
+  }
+  @media (max-width: 760px) { .footgrid { grid-template-columns: 1fr 1fr !important; } }
+  @media (max-width: 560px) { .footgrid { grid-template-columns: 1fr !important; } }
+
+  /* =====================================================================
+     SCROLL ANIMATION ENGINE — reveal variants (data-reveal)
+     ===================================================================== */
+  [data-reveal] { opacity: 0; transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1); transition-delay: var(--rd,0ms); will-change: opacity, transform; }
+  [data-reveal="up"]    { transform: translateY(44px); }
+  [data-reveal="fade"]  { transform: none; }
+  [data-reveal="left"]  { transform: translateX(-56px); }
+  [data-reveal="right"] { transform: translateX(56px); }
+  [data-reveal="scale"] { transform: translateY(38px) scale(.94); }
+  [data-reveal].is-in   { opacity: 1; transform: none; }
+  /* line mask reveal */
+  .mask-line { display: block; overflow: hidden; padding-bottom: .04em; }
+  [data-reveal="mask"] { opacity: 1; display: inline-block; transform: translateY(112%); transition: transform 1s cubic-bezier(.2,.7,.2,1); transition-delay: var(--rd,0ms); will-change: transform; }
+  [data-reveal="mask"].is-in { transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal] { opacity: 1 !important; transform: none !important; }
+  }
+
+  /* =====================================================================
+     SOINS — galerie scroll horizontal épinglé
+     ===================================================================== */
+  .hpin { position: relative; background: var(--navy); }
+  .hpin__sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; display: flex; align-items: center; }
+  .hpin__track { display: flex; gap: 24px; padding: 0 clamp(20px,5vw,80px); will-change: transform; }
+  .hcard { position: relative; flex: 0 0 auto; width: clamp(300px,62vw,720px); height: 74vh; border-radius: 24px; overflow: hidden; background: var(--navy); }
+  .hcard--intro { display: flex; flex-direction: column; justify-content: center; gap: 18px; background: none; width: clamp(280px,42vw,480px); }
+  .hcard--intro h2 { font-size: clamp(36px,5vw,76px); font-weight: 800; text-transform: uppercase; letter-spacing: -.02em; line-height: .96; color: #fff; }
+  .hcard--intro p { color: rgba(255,255,255,.6); max-width: 30ch; font-size: 16px; line-height: 1.6; }
+  .hcard__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hcard__veil { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,25,47,0) 38%, rgba(10,25,47,.86)); }
+  .hcard__cap { position: absolute; left: 30px; right: 30px; bottom: 28px; color: #fff; }
+  .hcard__num { font-family: monospace; font-size: 13px; color: var(--blue-l); margin-bottom: 10px; }
+  .hcard__cap h3 { font-size: clamp(26px,3.2vw,46px); font-weight: 800; text-transform: uppercase; letter-spacing: -.02em; line-height: 1; }
+  .hcard__cap p { margin-top: 8px; font-size: 14px; color: rgba(255,255,255,.7); max-width: 34ch; }
+  .hpin__hint { font-family: monospace; font-size: 12px; color: var(--blue2); letter-spacing: .06em; margin-top: 12px; }
+  .hpin__bar { position: absolute; left: clamp(20px,5vw,80px); right: clamp(20px,5vw,80px); bottom: 30px; height: 2px; background: rgba(255,255,255,.18); border-radius: 2px; z-index: 5; }
+  .hpin__bar span { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: #fff; border-radius: 2px; }
+  /* fallback : swipe horizontal natif */
+  .hpin--static { height: auto !important; }
+  .hpin--static .hpin__sticky { position: static; height: auto; padding: clamp(40px,7vw,90px) 0; }
+  .hpin--static .hpin__track { transform: none !important; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 24px; }
+  .hpin--static .hcard { scroll-snap-align: center; height: 70vh; width: min(82vw,560px); }
+  .hpin--static .hpin__bar { display: none; }
+
+  /* =====================================================================
+     3. LE CABINET — vidéo qui s'agrandit au scroll + compteurs
+     ===================================================================== */
+  .expand { position: relative; background: var(--navy); height: 220vh; }
+  .expand__sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .expand__media { position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: 28px; transform: scale(.86); transform-origin: center; will-change: transform; }
+  .expand__media video, .expand__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .expand__veil { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,25,47,.15) 0%, rgba(10,25,47,.4) 50%, rgba(10,25,47,.82) 100%); }
+  .expand__overlay { position: absolute; inset: 0; z-index: 3; display: flex; flex-direction: column; justify-content: flex-end; padding: clamp(32px,6vw,96px); color: #fff; pointer-events: none; }
+  .expand__overlay .eyebrow { margin-bottom: 18px; }
+  .expand__overlay h2 { font-size: clamp(34px,6.2vw,96px); font-weight: 800; text-transform: uppercase; letter-spacing: -.02em; line-height: .96; max-width: 17ch; }
+
+  /* =====================================================================
+     4. LE PRATICIEN — portrait flottant + révélations
+     ===================================================================== */
+  .prac { position: relative; overflow: hidden; background: var(--navy); padding: clamp(60px,9vw,140px) clamp(22px,6vw,96px); }
+  .prac__wm { position: absolute; left: 50%; top: 5%; transform: translateX(-50%); font-weight: 900; font-size: clamp(96px,23vw,360px); letter-spacing: -.04em; line-height: 1; color: #fff; opacity: .04; text-transform: uppercase; white-space: nowrap; pointer-events: none; }
+  .prac__grid { position: relative; z-index: 2; display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(40px,6vw,96px); align-items: center; max-width: 1180px; margin: 0 auto; }
+  .prac__frame { position: relative; width: min(420px,100%); margin: 0 auto; aspect-ratio: 3/4; }
+  .prac__backdrop { position: absolute; right: -18px; bottom: -18px; width: 80%; height: 80%; background: var(--blue); border-radius: 26px; }
+  .prac__img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; object-position: center top; border-radius: 24px; box-shadow: 0 44px 84px -42px rgba(10,25,47,.55); }
+  .prac__badge { position: absolute; z-index: 2; left: -16px; bottom: 30px; background: #fff; border-radius: 16px; padding: 13px 17px; display: flex; align-items: center; gap: 12px; box-shadow: 0 26px 54px -26px rgba(10,25,47,.5); }
+  .prac__badge b { display: block; font-size: 13.5px; color: var(--navy); line-height: 1.2; }
+  .prac__badge span { display: block; font-size: 11px; color: #6a7686; }
+  .prac__copy { max-width: 48ch; }
+  .prac__copy .eyebrow { color: var(--blue2); margin-bottom: 20px; }
+  .prac__name { font-weight: 800; text-transform: uppercase; letter-spacing: -.02em; line-height: .96; font-size: clamp(38px,5.4vw,74px); color: #fff; }
+  .prac__name span { color: var(--blue2); }
+  .prac__role { font-size: clamp(14px,1.3vw,17px); font-weight: 600; color: var(--blue-l); margin-top: 16px; }
+  .prac__bio { font-size: clamp(15px,1.3vw,17px); line-height: 1.72; color: rgba(255,255,255,.72); margin-top: 22px; }
+  .prac__facts { list-style: none; margin-top: 30px; display: flex; flex-direction: column; gap: 15px; }
+  .prac__facts li { display: flex; align-items: center; gap: 13px; font-size: 14.5px; font-weight: 500; color: #fff; }
+  .prac__facts li svg { flex: none; }
+  @media (prefers-reduced-motion: no-preference) {
+    .prac__frame { animation: portFloat 7s ease-in-out infinite; }
+    .prac__badge { animation: portFloat 6s ease-in-out infinite .9s reverse; }
+  }
+  @keyframes portFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+  @media (max-width: 900px) { .prac__grid { grid-template-columns: 1fr; gap: 44px; } .prac__copy { max-width: none; } }
+
+  /* =====================================================================
+     5. L'ÉQUIPE — grille N&B → couleur
+     ===================================================================== */
+  .team { background: var(--navy2); padding: clamp(56px,8vw,120px) clamp(22px,5vw,80px); }
+  .team__head { max-width: 1180px; margin: 0 auto clamp(36px,5vw,60px); display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .team__head h2 { font-size: clamp(30px,4.4vw,62px); font-weight: 800; text-transform: uppercase; letter-spacing: -.02em; line-height: 1; color: #fff; max-width: 16ch; }
+  .team__head p { font-size: 15px; line-height: 1.6; color: rgba(255,255,255,.65); max-width: 38ch; }
+  .team__grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
+  .tcard { position: relative; border-radius: 18px; overflow: hidden; background: var(--navy); aspect-ratio: 3/4; }
+  .tcard img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: grayscale(100%) contrast(1.02); transition: filter .5s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+  .tcard:hover img { filter: none; transform: scale(1.05); }
+  .tcard__info { position: absolute; left: 0; right: 0; bottom: 0; padding: 16px 18px; background: linear-gradient(180deg, transparent, rgba(10,25,47,.92)); color: #fff; }
+  .tcard__info b { display: block; font-size: 15px; }
+  .tcard__info span { display: block; font-size: 12px; color: var(--blue-l); margin-top: 3px; }
+  @media (max-width: 980px) { .team__grid { grid-template-columns: repeat(3,1fr); } }
+  @media (max-width: 680px) { .team__grid { grid-template-columns: repeat(2,1fr); } }
+
+  /* =====================================================================
+     HISTOIRE — frise chronologique
+     ===================================================================== */
+  .story { position: relative; overflow: hidden; background: var(--navy2); color: #fff; padding: clamp(64px,9vw,150px) clamp(22px,6vw,96px); }
+  .story::before { content: ""; position: absolute; width: 54vw; height: 54vw; right: -16vw; top: -18vw; background: radial-gradient(circle, rgba(45,108,223,.16), transparent 60%); pointer-events: none; }
+  .story__head { position: relative; z-index: 2; max-width: 1080px; margin: 0 auto clamp(40px,5vw,70px); }
+  .story__head h2 { font-size: clamp(34px,5.5vw,84px); font-weight: 800; text-transform: uppercase; letter-spacing: -.025em; line-height: .96; margin-top: 16px; }
+  .story__head p { margin-top: 22px; max-width: 52ch; color: rgba(255,255,255,.7); font-size: clamp(15px,1.4vw,18px); line-height: 1.6; }
+  .story__line { position: relative; z-index: 2; max-width: 1080px; margin: 0 auto; }
+  .story__item { display: grid; grid-template-columns: minmax(110px,210px) 1fr; gap: clamp(20px,5vw,64px); padding: clamp(28px,4vw,52px) 0; border-top: 1px solid rgba(255,255,255,.12); }
+  .story__item:last-child { border-bottom: 1px solid rgba(255,255,255,.12); }
+  .story__year { font-weight: 800; font-size: clamp(40px,6vw,92px); letter-spacing: -.03em; line-height: .9; color: var(--blue2); }
+  .story__body h3 { font-size: clamp(19px,2.2vw,28px); font-weight: 700; color: #fff; }
+  .story__body p { margin-top: 12px; max-width: 50ch; color: rgba(255,255,255,.68); font-size: clamp(15px,1.3vw,17px); line-height: 1.65; }
+  @media (max-width: 680px) { .story__item { grid-template-columns: 1fr; gap: 10px; } }
+
+  /* =====================================================================
+     NOS ENGAGEMENTS — démarche qualitative
+     ===================================================================== */
+  .engage { position: relative; background: var(--navy); padding: clamp(56px,8vw,120px) clamp(22px,5vw,80px); }
+  .engage__head { max-width: 1180px; margin: 0 auto clamp(36px,5vw,56px); }
+  .engage__head h2 { font-size: clamp(30px,4.4vw,62px); font-weight: 800; text-transform: uppercase; letter-spacing: -.02em; line-height: 1; color: #fff; max-width: 18ch; margin-top: 14px; }
+  .engage__grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+  .ecard { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 20px; padding: clamp(26px,3vw,40px); transition: transform .4s cubic-bezier(.2,.7,.2,1), border-color .3s ease, background .3s ease; }
+  .ecard:hover { transform: translateY(-6px); border-color: rgba(45,108,223,.5); background: rgba(45,108,223,.08); }
+  .ecard__icon { width: 50px; height: 50px; border-radius: 13px; background: rgba(45,108,223,.16); display: flex; align-items: center; justify-content: center; margin-bottom: 22px; }
+  .ecard__num { font-family: monospace; font-size: 12.5px; color: var(--blue-l); }
+  .ecard h3 { font-size: clamp(19px,1.9vw,25px); font-weight: 700; color: #fff; margin-top: 6px; }
+  .ecard p { margin-top: 13px; color: rgba(255,255,255,.66); line-height: 1.62; font-size: 14.5px; }
+  @media (max-width: 860px) { .engage__grid { grid-template-columns: 1fr; } }
+
+  /* =====================================================================
+     FOOTER
+     ===================================================================== */
+  .site-footer { background: #06101F; color: #fff; padding: clamp(48px,6vw,84px) clamp(22px,7vw,110px) clamp(26px,3vw,38px); }
+  .footgrid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: clamp(28px,4vw,56px); padding-bottom: 46px; border-bottom: 1px solid rgba(255,255,255,0.12); }
+</style>
+</head>
+<body>
+
+<div style="background:var(--navy); min-height:100vh;">
+
+  <!-- ============ HEADER (inchangé) ============ -->
+  <header style="position:sticky; top:0; z-index:100; display:flex; align-items:stretch; height:76px; background:#0A192F; margin:0; box-shadow:0 14px 34px -22px rgba(10,25,47,0.6);">
+    <div style="flex:none; display:flex; align-items:center; gap:13px; background:#F4F0E6; padding:0 30px 0 22px; border-bottom-right-radius:26px;">
+      <img src="images/logo.svg" alt="Cabinet Dentaire Villabé Paris Sud" style="height:52px; width:auto;">
+      <div style="width:1px; height:32px; background:rgba(10,25,47,0.18);"></div>
+      <div style="display:flex; flex-direction:column; line-height:1.12;">
+        <span style="font-weight:800; font-size:19px; letter-spacing:-0.01em; color:#0A192F;">VILLABÉ</span>
+        <span style="font-weight:600; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#6a7686;">Cabinet Dentaire</span>
+      </div>
+    </div>
+    <nav class="navcenter" style="flex:1; display:flex; align-items:stretch;">
+      <a href="#cabinet" class="nav-active" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(16px,1.8vw,30px); font-size:16px; font-weight:600; color:#fff; text-decoration:none; background:rgba(255,255,255,0.09); border-bottom-left-radius:18px; border-bottom-right-radius:18px; transition:background .2s ease;">Le Cabinet</a>
+      <a href="#soins" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(16px,1.8vw,30px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.78); text-decoration:none; transition:background .2s ease, color .2s ease;">Soins &amp; Prothèses</a>
+      <a href="#equipe" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(16px,1.8vw,30px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.78); text-decoration:none; transition:background .2s ease, color .2s ease;">L'Équipe</a>
+      <a href="#histoire" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(16px,1.8vw,30px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.78); text-decoration:none; transition:background .2s ease, color .2s ease;">Histoire</a>
+      <a href="#contact" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(16px,1.8vw,30px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.78); text-decoration:none; transition:background .2s ease, color .2s ease;">Contact</a>
+    </nav>
+    <div style="flex:none; margin-left:auto; display:flex; align-items:center; gap:8px; padding:0 16px;">
+      <a href="mailto:contact@villabe-dental.fr" class="icon-tab" style="width:40px; height:40px; border-radius:10px; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; text-decoration:none; transition:background .2s ease;">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+      </a>
+      <a href="#contact" class="icon-tab" style="width:40px; height:40px; border-radius:10px; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; text-decoration:none; transition:background .2s ease;">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </a>
+    </div>
+    <a href="tel:0160862971" class="phone-cta" style="flex:none; display:flex; align-items:center; gap:12px; background:#1E3A8A; padding:0 28px; text-decoration:none; border-bottom-left-radius:26px; transition:background .2s ease;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span style="display:flex; flex-direction:column; line-height:1.1;">
+        <span style="font-size:10px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:rgba(255,255,255,0.7);">Appelez-nous</span>
+        <span style="font-size:15px; font-weight:800; color:#fff;">01 60 86 29 71</span>
+      </span>
+    </a>
+  </header>
+
+  <!-- ============ HERO (inchangé) ============ -->
+  <section style="position:relative; overflow:hidden; min-height:calc(100vh - 76px); display:flex; flex-direction:column; justify-content:flex-end; padding:clamp(22px,3vw,52px); margin:0;">
+    <div style="position:absolute; inset:0; z-index:0; overflow:hidden; background:#0A192F;">
+      <iframe class="hero-video" title="Cabinet dentaire de Villabé" src="https://player.vimeo.com/video/1108208960?dnt=1&app_id=122963&autoplay=1&muted=1&loop=1&background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+    <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,25,47,0.42) 0%, rgba(10,25,47,0) 20%, rgba(10,25,47,0) 50%, rgba(10,25,47,0.92) 100%); z-index:1;"></div>
+    <div class="herobottom" style="position:relative; z-index:3; display:flex; align-items:flex-end; justify-content:space-between; gap:24px; margin-top:auto;">
+      <div style="display:flex; flex-wrap:wrap; gap:9px; max-width:440px;"></div>
+      <div style="flex:none; width:min(360px,100%);">
+        <div style="display:flex; align-items:center; gap:14px; margin-bottom:14px; color:rgba(255,255,255,0.9);">
+          <span style="font-size:13px; font-weight:600;">‹</span>
+          <span style="font-family:monospace; font-size:12px;">01</span>
+          <span style="flex:1; height:2px; background:rgba(255,255,255,0.3); border-radius:2px; position:relative;"><span style="position:absolute; left:0; top:0; bottom:0; width:28%; background:#fff; border-radius:2px;"></span></span>
+          <span style="font-family:monospace; font-size:12px; opacity:0.6;">05</span>
+          <span style="font-size:13px; font-weight:600;">›</span>
+        </div>
+        <div style="background:#fff; border-radius:18px; padding:14px; display:flex; align-items:center; gap:14px; box-shadow:0 18px 40px -18px rgba(0,0,0,0.4);">
+          <img src="images/steve_toupenay.jpg" alt="Dr Toupenay" style="flex:none; width:58px; height:58px; border-radius:12px; object-fit:cover; object-position:center 22%;">
+          <div style="flex:1;">
+            <div style="font-weight:700; font-size:15px; color:#0A192F;">Dr Steve Toupenay</div>
+            <div style="font-size:12px; color:#6a7686;">Spécialiste en médecine bucco-dentaire</div>
+            <div style="height:1px; background:#eceff3; margin:8px 0;"></div>
+            <div style="font-size:12px; color:#0A192F; font-weight:600;">Expert près la Cour d'Appel de Paris</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOINS — scroll horizontal épinglé ============ -->
+  <section class="hpin" id="soins" aria-label="Soins & traitements">
+    <div class="hpin__sticky">
+      <div class="hpin__track">
+
+        <article class="hcard hcard--intro">
+          <span class="eyebrow" style="color:var(--blue2)">Soins &amp; traitements</span>
+          <h2>Nos<br>expertises</h2>
+          <p>Quatre domaines, une même exigence clinique.</p>
+          <span class="hpin__hint">Faites défiler →</span>
+        </article>
+
+        <article class="hcard">
+          <video class="hcard__img" data-bg src="videos/soin-soins.mp4" poster="https://images.unsplash.com/photo-1486825586573-7131f7991bdd?auto=format&fit=crop&w=1400&q=80" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <div class="hcard__veil"></div>
+          <div class="hcard__cap"><div class="hcard__num">01 / 04</div><h3>Soins &amp; Prothèses</h3><p>Inlays, onlays, couronnes et prothèses fabriqués en France.</p></div>
+        </article>
+
+        <article class="hcard">
+          <video class="hcard__img" data-bg src="videos/soin-implanto.mp4" poster="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=1400&q=80" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <div class="hcard__veil"></div>
+          <div class="hcard__cap"><div class="hcard__num">02 / 04</div><h3>Implantologie</h3><p>Implants et piliers posés en bloc opératoire dédié.</p></div>
+        </article>
+
+        <article class="hcard">
+          <video class="hcard__img" data-bg src="videos/soin-chirurgie.mp4" poster="https://images.unsplash.com/photo-1612277795421-9bc7706a4a34?auto=format&fit=crop&w=1400&q=80" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <div class="hcard__veil"></div>
+          <div class="hcard__cap"><div class="hcard__num">03 / 04</div><h3>Chirurgie orale</h3><p>Extractions, dents de sagesse et greffes osseuses.</p></div>
+        </article>
+
+        <article class="hcard">
+          <video class="hcard__img" data-bg src="videos/soin-esthetique.mp4" poster="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1400&q=80" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <div class="hcard__veil"></div>
+          <div class="hcard__cap"><div class="hcard__num">04 / 04</div><h3>Esthétique</h3><p>Harmoniser et sublimer la ligne du sourire.</p></div>
+        </article>
+
+      </div>
+      <div class="hpin__bar"><span></span></div>
+    </div>
+  </section>
+
+  <!-- ============ 3. LE CABINET — vidéo qui s'agrandit ============ -->
+  <section class="expand" id="cabinet" aria-label="Le cabinet">
+    <div class="expand__sticky">
+      <div class="expand__media">
+        <video data-bg src="videos/cabinet.mp4" poster="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1800&q=80" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+        <div class="expand__veil"></div>
+      </div>
+      <div class="expand__overlay">
+        <span class="eyebrow">Le Cabinet</span>
+        <h2 data-reveal="up">Un écrin de 300 m²,<br>au cœur de Villabé.</h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HISTOIRE — frise chronologique ============ -->
+  <section class="story" id="histoire" aria-label="Histoire du cabinet">
+    <div class="story__head">
+      <span class="eyebrow" data-reveal="up">Notre histoire</span>
+      <h2 data-reveal="up" style="--rd:60ms">Au cœur de Villabé<br>depuis des décennies</h2>
+      <p data-reveal="up" style="--rd:140ms">Un cabinet qui n'a cessé de grandir au service de votre santé bucco-dentaire.</p>
+    </div>
+    <div class="story__line" data-stagger="120">
+      <div class="story__item">
+        <div class="story__year" data-reveal="up">2005</div>
+        <div class="story__body" data-reveal="up"><h3>Une structure de plus de 400 m²</h3><p>Le Dr Vital et le Dr Toupenay s'engagent vers une structure médicale dédiée à la chirurgie dentaire et à la médecine bucco-dentaire.</p></div>
+      </div>
+      <div class="story__item">
+        <div class="story__year" data-reveal="up">2018</div>
+        <div class="story__body" data-reveal="up"><h3>Le Dr Sougoumarin rejoint le cabinet</h3><p>Pour pérenniser et renforcer l'offre de soins bucco-dentaires proposée aux patients.</p></div>
+      </div>
+      <div class="story__item">
+        <div class="story__year" data-reveal="up">2021</div>
+        <div class="story__body" data-reveal="up"><h3>L'arrivée du Dr Garnier-Nguyen</h3><p>L'équipe soignante s'agrandit pour accompagner toujours plus de patients.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. LE PRATICIEN ============ -->
+  <section class="prac" id="praticien" aria-label="Le praticien">
+    <div class="prac__wm" aria-hidden="true">Toupenay</div>
+    <div class="prac__grid">
+      <div class="prac__media" data-reveal="left">
+        <div class="prac__frame">
+          <div class="prac__backdrop"></div>
+          <img class="prac__img" src="images/steve_toupenay.jpg" alt="Portrait du Dr Steve Toupenay">
+          <div class="prac__badge">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2D6CDF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            <span><b>Expert</b><span>Cour d'Appel de Paris</span></span>
+          </div>
+        </div>
+      </div>
+      <div class="prac__copy" data-stagger="90">
+        <span class="eyebrow" data-reveal="up">Le praticien</span>
+        <h2 class="prac__name" data-reveal="up">Dr Steve <span>Toupenay</span></h2>
+        <div class="prac__role" data-reveal="up">Spécialiste qualifié en médecine bucco-dentaire</div>
+        <p class="prac__bio" data-reveal="up">Docteur en Chirurgie Dentaire et Docteur ès Sciences en Biologie Orale (Université Paris Diderot), le Dr Toupenay est spécialiste qualifié en médecine bucco-dentaire. Expert près la Cour d'Appel de Paris et agréé par la Cour de cassation, il a exercé quinze ans comme praticien hospitalier à l'APHP, où il a participé à la création du Centre de Référence des Malformations rares de la Face et de la Cavité Buccale.</p>
+        <ul class="prac__facts">
+          <li data-reveal="up"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D6CDF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Spécialiste qualifié en médecine bucco-dentaire</li>
+          <li data-reveal="up"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D6CDF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Expert près la Cour d'Appel de Paris · Cour de cassation</li>
+          <li data-reveal="up"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D6CDF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>15 ans praticien hospitalier — APHP</li>
+          <li data-reveal="up"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D6CDF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Ancien Maître de Conférence — Université Paris Cité</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. L'ÉQUIPE ============ -->
+  <section class="team" id="equipe" aria-label="L'équipe">
+    <div class="team__head">
+      <h2 data-reveal="up">Sept personnes,<br>un même engagement</h2>
+      <p data-reveal="up" style="--rd:100ms">Praticiens et assistantes vous accompagnent à chaque étape de votre prise en charge.</p>
+    </div>
+    <div class="team__grid" data-stagger="80">
+      <article class="tcard" data-reveal="scale"><img src="images/steve_toupenay.jpg" alt="Dr Steve Toupenay"><div class="tcard__info"><b>Dr Steve Toupenay</b><span>Spécialiste · médecine bucco-dentaire</span></div></article>
+      <article class="tcard" data-reveal="scale"><img src="images/dr_sougoumarin.jpg" alt="Dr Dharani Sougoumarin"><div class="tcard__info"><b>Dr Dharani Sougoumarin</b><span>Chirurgien-dentiste · Chirurgie orale</span></div></article>
+      <article class="tcard" data-reveal="scale"><img src="images/garnier.jpg" alt="Dr Thomas Garnier-Nguyen"><div class="tcard__info"><b>Dr Thomas Garnier-Nguyen</b><span>Spécialiste · Implantologie</span></div></article>
+      <article class="tcard" data-reveal="scale"><img src="images/narima.jpg" alt="Narima"><div class="tcard__info"><b>Narima</b><span>Assistante dentaire · Administratif</span></div></article>
+      <article class="tcard" data-reveal="scale"><img src="images/charlene.jpg" alt="Charlène"><div class="tcard__info"><b>Charlène</b><span>Assistante dentaire · Expertises judiciaires</span></div></article>
+      <article class="tcard" data-reveal="scale"><img src="images/jessica.jpg" alt="Jessica"><div class="tcard__info"><b>Jessica</b><span>Assistante dentaire · Logistique</span></div></article>
+      <article class="tcard" data-reveal="scale"><img src="images/leyla.jpg" alt="Leyla"><div class="tcard__info"><b>Leyla</b><span>Agent d'entretien</span></div></article>
+    </div>
+  </section>
+
+  <!-- ============ NOS ENGAGEMENTS — démarche qualitative ============ -->
+  <section class="engage" id="engagements" aria-label="Nos engagements">
+    <div class="engage__head">
+      <span class="eyebrow" data-reveal="up">Démarche qualitative</span>
+      <h2 data-reveal="up" style="--rd:60ms">Nos engagements<br>pour votre sécurité</h2>
+    </div>
+    <div class="engage__grid" data-stagger="110">
+      <article class="ecard" data-reveal="up">
+        <div class="ecard__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9FC0F0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2 3 6 3s6-2 6-3v-5"/></svg></div>
+        <div class="ecard__num">01</div>
+        <h3>Formations continues</h3>
+        <p>Nos praticiens suivent et dispensent des formations continues, pour des soins conformes aux données acquises de la science.</p>
+      </article>
+      <article class="ecard" data-reveal="up">
+        <div class="ecard__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9FC0F0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <div class="ecard__num">02</div>
+        <h3>Hygiène &amp; aseptie</h3>
+        <p>Protocoles stricts aux normes NF : désinfection et stérilisation des instruments, et récupération des matériaux pour préserver l'environnement.</p>
+      </article>
+      <article class="ecard" data-reveal="up">
+        <div class="ecard__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9FC0F0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/></svg></div>
+        <div class="ecard__num">03</div>
+        <h3>Transparence</h3>
+        <p>Cabinet conventionné : un devis détaillé établi selon la CCAM vous est remis pour chaque traitement, en toute clarté.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer" id="contact">
+    <div class="footgrid">
+      <div style="max-width:34ch;">
+        <div style="display:flex; align-items:center; gap:13px; margin-bottom:20px;">
+          <img src="images/logo-white.svg" alt="Cabinet Dentaire Villabé" style="height:52px; width:auto;">
+          <div style="display:flex; flex-direction:column; line-height:1.12;">
+            <span style="font-weight:800; font-size:19px; letter-spacing:-0.01em;">VILLABÉ</span>
+            <span style="font-weight:600; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#9FC0F0;">Cabinet Dentaire</span>
+          </div>
+        </div>
+        <p style="font-size:14px; line-height:1.65; color:rgba(255,255,255,0.6);">Cabinet de chirurgie et de médecine bucco-dentaire à Villabé, en Essonne.</p>
+        <a href="tel:0160862971" style="display:inline-flex; align-items:center; gap:12px; margin-top:24px; text-decoration:none;">
+          <span style="width:42px; height:42px; flex:none; border-radius:11px; background:rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9FC0F0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <span style="display:flex; flex-direction:column; line-height:1.15;"><span style="font-size:10.5px; color:rgba(255,255,255,0.55); letter-spacing:0.04em;">Appelez-nous</span><span style="font-size:17px; font-weight:700; color:#fff;">01 60 86 29 71</span></span>
+        </a>
+      </div>
+      <div>
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#9FC0F0; margin-bottom:16px;">Adresse</div>
+        <div style="font-size:14.5px; line-height:2; color:rgba(255,255,255,0.8);">7 Rue des Prés<br>91100 Villabé<br>Essonne, Île-de-France</div>
+      </div>
+      <div>
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#9FC0F0; margin-bottom:16px;">Horaires</div>
+        <div style="font-size:14.5px; line-height:2; color:rgba(255,255,255,0.8);">Lun – Ven&nbsp;: 9h–13h / 14h–20h<br>Samedi&nbsp;: 9h – 13h<br>Dimanche&nbsp;: fermé</div>
+      </div>
+      <div>
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#9FC0F0; margin-bottom:16px;">Navigation</div>
+        <div style="display:flex; flex-direction:column; gap:11px;">
+          <a href="#soins" class="flink" style="font-size:14.5px; color:rgba(255,255,255,0.8); text-decoration:none; transition:color .2s ease;">Soins &amp; Prothèses</a>
+          <a href="#cabinet" class="flink" style="font-size:14.5px; color:rgba(255,255,255,0.8); text-decoration:none; transition:color .2s ease;">Le Cabinet</a>
+          <a href="#equipe" class="flink" style="font-size:14.5px; color:rgba(255,255,255,0.8); text-decoration:none; transition:color .2s ease;">L'Équipe</a>
+          <a href="#histoire" class="flink" style="font-size:14.5px; color:rgba(255,255,255,0.8); text-decoration:none; transition:color .2s ease;">Histoire</a>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px; padding-top:26px;">
+      <span style="font-size:12.5px; color:rgba(255,255,255,0.42);">© 2026 Cabinet Toupenay-Sougoumarin — Villabé.</span>
+      <div style="display:flex; gap:24px;">
+        <a href="#" class="flink" style="font-size:12.5px; color:rgba(255,255,255,0.5); text-decoration:none;">Mentions légales</a>
+        <a href="#" class="flink" style="font-size:12.5px; color:rgba(255,255,255,0.5); text-decoration:none;">Confidentialité</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script src="js/lenis.min.js"></script>
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var D = document;
+  var raf = window.requestAnimationFrame || function (f) { return setTimeout(f, 16); };
+  var lenis = null;
+
+  /* ---------- 0. Lenis smooth scroll (premium glide) ---------- */
+  function initLenis() {
+    if (reduce || !window.Lenis) return;
+    lenis = new Lenis({
+      duration: 1.15,
+      easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.6
+    });
+    function loop(time) { lenis.raf(time); requestAnimationFrame(loop); }
+    requestAnimationFrame(loop);
+    // smooth anchor navigation (offset for the sticky header)
+    Array.prototype.slice.call(D.querySelectorAll('a[href^="#"]')).forEach(function (a) {
+      var href = a.getAttribute('href');
+      if (href.length < 2) return;
+      a.addEventListener('click', function (e) {
+        var t = D.querySelector(href);
+        if (t) { e.preventDefault(); lenis.scrollTo(t, { offset: -80 }); }
+      });
+    });
+  }
+
+  /* ---------- 1. Reveal on scroll (with stagger) ---------- */
+  function initReveal() {
+    var els = Array.prototype.slice.call(D.querySelectorAll('[data-reveal]'));
+    if (!els.length) return;
+    els.forEach(function (e) {
+      var p = e.parentElement;
+      while (p && !p.hasAttribute('data-stagger')) p = p.parentElement;
+      if (p && !e.style.getPropertyValue('--rd')) {
+        var sibs = Array.prototype.slice.call(p.querySelectorAll('[data-reveal]'));
+        var step = parseInt(p.getAttribute('data-stagger'), 10) || 80;
+        e.style.setProperty('--rd', (sibs.indexOf(e) * step) + 'ms');
+      }
+    });
+    if (reduce || !('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('is-in'); }); return; }
+    var io = new IntersectionObserver(function (ents) {
+      ents.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); } });
+    }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (e) { io.observe(e); });
+  }
+
+  /* ---------- 2. Horizontal pinned gallery ---------- */
+  function initHPin() {
+    Array.prototype.slice.call(D.querySelectorAll('.hpin')).forEach(function (sec) {
+      var track = sec.querySelector('.hpin__track');
+      var bar = sec.querySelector('.hpin__bar span');
+      if (!track) return;
+      if (reduce || window.innerWidth <= 760) { sec.classList.add('hpin--static'); return; }
+      var dist = 0;
+      function layout() {
+        dist = Math.max(0, track.scrollWidth - window.innerWidth);
+        sec.style.height = (window.innerHeight + dist) + 'px';
+      }
+      function update() {
+        var top = sec.getBoundingClientRect().top;
+        var prog = dist > 0 ? Math.min(1, Math.max(0, (-top) / dist)) : 0;
+        track.style.transform = 'translate3d(' + (-prog * dist).toFixed(1) + 'px,0,0)';
+        if (bar) bar.style.width = (prog * 100).toFixed(1) + '%';
+      }
+      layout(); update();
+      window.addEventListener('resize', function () { layout(); update(); }, { passive: true });
+      window.addEventListener('scroll', function () { raf(update); }, { passive: true });
+    });
+  }
+
+  /* ---------- 3. Expanding media (Le Cabinet) ---------- */
+  function initExpand() {
+    Array.prototype.slice.call(D.querySelectorAll('.expand')).forEach(function (sec) {
+      var media = sec.querySelector('.expand__media');
+      if (!media) return;
+      if (reduce) { media.style.transform = 'none'; media.style.borderRadius = '0'; return; }
+      function update() {
+        var top = sec.getBoundingClientRect().top;
+        var dist = sec.offsetHeight - window.innerHeight;
+        var prog = dist > 0 ? Math.min(1, Math.max(0, (-top) / dist)) : 0;
+        var p = Math.min(1, prog / 0.55);                 // expand during first 55%
+        media.style.transform = 'scale(' + (0.86 + 0.14 * p).toFixed(4) + ')';
+        media.style.borderRadius = (28 * (1 - p)).toFixed(1) + 'px';
+      }
+      update();
+      window.addEventListener('scroll', function () { raf(update); }, { passive: true });
+      window.addEventListener('resize', update, { passive: true });
+    });
+  }
+
+  /* ---------- 4. Number counters ---------- */
+  function initCounters() {
+    var els = Array.prototype.slice.call(D.querySelectorAll('[data-count]'));
+    if (!els.length) return;
+    function run(el) {
+      var to = parseFloat(el.getAttribute('data-count')) || 0;
+      if (reduce) { el.textContent = Math.round(to); return; }
+      var dur = 1500, start = null;
+      function step(ts) {
+        if (start === null) start = ts;
+        var t = Math.min(1, (ts - start) / dur);
+        el.textContent = Math.round(to * (1 - Math.pow(1 - t, 3)));
+        if (t < 1) raf(step);
+      }
+      raf(step);
+    }
+    if (!('IntersectionObserver' in window)) { els.forEach(run); return; }
+    var io = new IntersectionObserver(function (ents) {
+      ents.forEach(function (en) { if (en.isIntersecting) { run(en.target); io.unobserve(en.target); } });
+    }, { threshold: 0.6 });
+    els.forEach(function (e) { io.observe(e); });
+  }
+
+  /* ---------- 5. Background videos: play only on-screen ---------- */
+  function initVideos() {
+    var vids = Array.prototype.slice.call(D.querySelectorAll('video[data-bg]'));
+    if (!vids.length) return;
+    if (reduce) { vids.forEach(function (v) { try { v.pause(); } catch (e) {} }); return; }
+    if (!('IntersectionObserver' in window)) { vids.forEach(function (v) { v.play().catch(function () {}); }); return; }
+    var io = new IntersectionObserver(function (ents) {
+      ents.forEach(function (en) {
+        if (en.isIntersecting) { en.target.play().catch(function () {}); }
+        else { try { en.target.pause(); } catch (e) {} }
+      });
+    }, { threshold: 0.15 });
+    vids.forEach(function (v) { io.observe(v); });
+  }
+
+  /* ---------- Mode démo : défilement auto pour filmer une vidéo de présentation.
+       Appuyer sur "D", ou ouvrir index.html#demo. Vitesse réglable via pxPerSec. ---------- */
+  function initDemo() {
+    // ----- réglages du rythme (en secondes / px par seconde) -----
+    var HERO_HOLD   = 6;     // temps passé sur le hero au départ
+    var TRANS_SPEED = 260;   // vitesse de transition entre sections (px/s) — plus petit = plus lent
+    var THROUGH_SPEED = 150; // vitesse à travers les sections animées (Soins, Cabinet)
+    var MIN_TRANS   = 3;     // durée mini d'une transition (s)
+    var PAUSE_HOLD  = 4;     // temps d'arrêt sur chaque section (s)
+
+    // sections, dans l'ordre : "through" = on traverse lentement (animation), "pause" = on s'arrête
+    var plan = [
+      { sel: '.hpin',   type: 'through', hold: 2 },
+      { sel: '.expand', type: 'through', hold: 2 },
+      { sel: '.story',  type: 'pause',   hold: PAUSE_HOLD },
+      { sel: '.prac',   type: 'pause',   hold: PAUSE_HOLD },
+      { sel: '.team',   type: 'pause',   hold: PAUSE_HOLD },
+      { sel: '.engage', type: 'pause',   hold: PAUSE_HOLD },
+      { sel: 'footer',  type: 'pause',   hold: 3 }
+    ];
+
+    var running = false;
+
+    function go(y, dur, done) {
+      var called = false;
+      var cb = function () { if (called) return; called = true; if (done) done(); };
+      if (lenis) lenis.scrollTo(y, { duration: dur, easing: function (t) { return t; }, onComplete: cb });
+      else {
+        var startY = window.pageYOffset, t0 = performance.now();
+        (function f(now) {
+          var p = Math.min(1, (now - t0) / (dur * 1000));
+          window.scrollTo(0, startY + (y - startY) * p);
+          if (p < 1) raf(f); else cb();
+        })(performance.now());
+      }
+      setTimeout(cb, dur * 1000 + 300);   // garde-fou si onComplete ne se déclenche pas
+    }
+
+    function buildSteps() {
+      var prevY = 0, steps = [];
+      plan.forEach(function (p) {
+        var el = D.querySelector(p.sel);
+        if (!el) return;
+        if (p.type === 'pause') {
+          var y = Math.max(0, el.offsetTop - 80);
+          steps.push({ y: y, dur: Math.max(MIN_TRANS, Math.abs(y - prevY) / TRANS_SPEED), hold: p.hold });
+          prevY = y;
+        } else {
+          var yTop = el.offsetTop;
+          steps.push({ y: yTop, dur: Math.max(MIN_TRANS, Math.abs(yTop - prevY) / TRANS_SPEED), hold: 1.2 });
+          var yEnd = el.offsetTop + el.offsetHeight - window.innerHeight;
+          if (yEnd > yTop) { steps.push({ y: yEnd, dur: Math.max(5, (yEnd - yTop) / THROUGH_SPEED), hold: p.hold }); prevY = yEnd; }
+          else prevY = yTop;
+        }
+      });
+      return steps;
+    }
+
+    function start() {
+      running = true;
+      if (lenis) lenis.scrollTo(0, { immediate: true }); else window.scrollTo(0, 0);
+      var steps = buildSteps(), i = 0;
+      function next() {
+        if (!running || i >= steps.length) return;
+        var s = steps[i++];
+        go(s.y, s.dur, function () { if (running) setTimeout(next, s.hold * 1000); });
+      }
+      setTimeout(next, HERO_HOLD * 1000);   // on reste d'abord sur le hero
+    }
+
+    D.addEventListener('keydown', function (e) {
+      if (e.key === 'd' || e.key === 'D') { running = false; setTimeout(start, 120); }
+    });
+    if (location.hash === '#demo') setTimeout(start, 1000);
+  }
+
+  function boot() {
+    try { initLenis(); } catch (e) {}
+    try { initDemo(); } catch (e) {}
+    try { initReveal(); } catch (e) {}
+    try { initHPin(); } catch (e) {}
+    try { initExpand(); } catch (e) {}
+    try { initCounters(); } catch (e) {}
+    try { initVideos(); } catch (e) {}
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
+})();
+</script>
+</body>
+</html>
