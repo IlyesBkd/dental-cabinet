@@ -102,13 +102,20 @@
   .expand__overlay h2 { font-size: clamp(32px,4.6vw,68px); font-weight: 800; text-transform: uppercase; letter-spacing: -.02em; line-height: .96; max-width: 17ch; }
 
   /* =====================================================================
-     4. LE PRATICIEN — portrait flottant + révélations
+     4. LES PRATICIENS — deux associés au même niveau
      ===================================================================== */
   .prac { position: relative; overflow: hidden; background: var(--navy); padding: clamp(56px,7vw,108px) clamp(22px,5vw,80px); }
-  .prac__wm { position: absolute; left: 50%; top: 5%; transform: translateX(-50%); font-weight: 900; font-size: clamp(80px,16vw,260px); letter-spacing: -.04em; line-height: 1; color: #fff; opacity: .04; text-transform: uppercase; white-space: nowrap; pointer-events: none; }
-  .prac__grid { position: relative; z-index: 2; display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(40px,6vw,96px); align-items: center; max-width: 1180px; margin: 0 auto; }
+  .prac__head { position: relative; z-index: 2; max-width: 1180px; margin: 0 auto clamp(46px,6vw,84px); text-align: center; }
+  .prac__head .eyebrow { color: var(--blue2); }
+  .prac__heading { margin-top: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: -.025em; line-height: .98; color: #fff; font-size: clamp(30px,3.8vw,52px); }
+  .prac__one { position: relative; max-width: 1180px; margin: 0 auto; }
+  .prac__one + .prac__one { margin-top: clamp(64px,9vw,128px); }
+  .prac__wm { position: absolute; left: 50%; top: -8%; transform: translateX(-50%); font-weight: 900; font-size: clamp(72px,14vw,220px); letter-spacing: -.04em; line-height: 1; color: #fff; opacity: .04; text-transform: uppercase; white-space: nowrap; pointer-events: none; z-index: 0; }
+  .prac__grid { position: relative; z-index: 2; display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(40px,6vw,96px); align-items: center; }
+  .prac__grid--rev { grid-template-columns: 1.15fr .85fr; }
   .prac__frame { position: relative; width: min(420px,100%); margin: 0 auto; aspect-ratio: 3/4; }
   .prac__backdrop { position: absolute; right: -18px; bottom: -18px; width: 80%; height: 80%; background: var(--blue); border-radius: 26px; }
+  .prac__grid--rev .prac__backdrop { right: auto; left: -18px; }
   .prac__img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; object-position: center top; border-radius: 24px; box-shadow: 0 44px 84px -42px rgba(10,25,47,.55); }
   .prac__badge { position: absolute; z-index: 2; left: -16px; bottom: 30px; background: #fff; border-radius: 16px; padding: 13px 17px; display: flex; align-items: center; gap: 12px; box-shadow: 0 26px 54px -26px rgba(10,25,47,.5); }
   .prac__badge b { display: block; font-size: 13.5px; color: var(--navy); line-height: 1.2; }
@@ -127,7 +134,7 @@
     .prac__badge { animation: portFloat 6s ease-in-out infinite .9s reverse; }
   }
   @keyframes portFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
-  @media (max-width: 900px) { .prac__grid { grid-template-columns: 1fr; gap: 44px; } .prac__copy { max-width: none; } }
+  @media (max-width: 900px) { .prac__grid, .prac__grid--rev { grid-template-columns: 1fr; gap: 44px; } .prac__copy { max-width: none; } .prac__grid--rev .prac__media { order: -1; } }
 
   /* =====================================================================
      5. L'ÉQUIPE — grille N&B → couleur
@@ -136,15 +143,14 @@
   .team__head { max-width: 1180px; margin: 0 auto clamp(36px,5vw,60px); display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
   .team__head h2 { font-size: clamp(28px,3.4vw,48px); font-weight: 800; text-transform: uppercase; letter-spacing: -.02em; line-height: 1; color: #fff; max-width: 16ch; }
   .team__head p { font-size: 15px; line-height: 1.6; color: rgba(255,255,255,.65); max-width: 38ch; }
-  .team__grid { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+  .team__grid { max-width: 960px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; }
+  .team__grid .tcard { flex: 1 1 280px; max-width: 300px; }
   .tcard { position: relative; border-radius: 18px; overflow: hidden; background: var(--navy); aspect-ratio: 3/4; }
   .tcard img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: grayscale(100%) contrast(1.02); transition: filter .5s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
   .tcard:hover img { filter: none; transform: scale(1.05); }
   .tcard__info { position: absolute; left: 0; right: 0; bottom: 0; padding: 16px 18px; background: linear-gradient(180deg, transparent, rgba(10,25,47,.92)); color: #fff; }
   .tcard__info b { display: block; font-size: 15px; }
   .tcard__info span { display: block; font-size: 12px; color: var(--blue-l); margin-top: 3px; }
-  @media (max-width: 980px) { .team__grid { grid-template-columns: repeat(3,1fr); } }
-  @media (max-width: 680px) { .team__grid { grid-template-columns: repeat(2,1fr); } }
 
   /* =====================================================================
      HISTOIRE — frise chronologique
@@ -354,27 +360,56 @@
     </div>
   </section>
 
-  <!-- ============ 4. LE PRATICIEN ============ -->
-  <section class="prac" id="praticien" aria-label="Le praticien">
-    <div class="prac__wm" aria-hidden="true">Toupenay</div>
-    <div class="prac__grid">
-      <div class="prac__media" data-reveal="left">
-        <div class="prac__frame">
-          <div class="prac__backdrop"></div>
-          <img class="prac__img" src="images/steve_toupenay.jpg" alt="Portrait du Dr Steve Toupenay">
+  <!-- ============ 4. LES PRATICIENS ASSOCIÉS ============ -->
+  <section class="prac" id="praticien" aria-label="Les praticiens associés">
+    <div class="prac__head">
+      <span class="eyebrow" data-reveal="up">Les associés</span>
+      <h2 class="prac__heading" data-reveal="up" style="--rd:80ms">Deux praticiens,<br>une même exigence</h2>
+    </div>
+
+    <div class="prac__one">
+      <div class="prac__wm" aria-hidden="true">Toupenay</div>
+      <div class="prac__grid">
+        <div class="prac__media" data-reveal="left">
+          <div class="prac__frame">
+            <div class="prac__backdrop"></div>
+            <img class="prac__img" src="images/steve_toupenay.jpg" alt="Portrait du Dr Steve Toupenay">
+          </div>
+        </div>
+        <div class="prac__copy" data-stagger="90">
+          <h3 class="prac__name" data-reveal="up">Dr Steve <span>Toupenay</span></h3>
+          <div class="prac__role" data-reveal="up">Spécialiste qualifié en médecine bucco-dentaire · Associé</div>
+          <p class="prac__bio" data-reveal="up">Docteur en Chirurgie Dentaire et Docteur ès Sciences en Biologie Orale (Université Paris Diderot), le Dr Toupenay est spécialiste qualifié en médecine bucco-dentaire. Expert près la Cour d'Appel de Paris et agréé par la Cour de cassation, il a exercé quinze ans comme praticien hospitalier à l'APHP, où il a participé à la création du Centre de Référence des Malformations rares de la Face et de la Cavité Buccale.</p>
+          <ul class="prac__facts">
+            <li data-reveal="up"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D6CDF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Spécialiste qualifié en médecine bucco-dentaire</li>
+            <li data-reveal="up"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D6CDF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Expert près la Cour d'Appel de Paris · Cour de cassation</li>
+            <li data-reveal="up"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D6CDF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>15 ans praticien hospitalier — APHP</li>
+            <li data-reveal="up"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D6CDF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Ancien Maître de Conférence — Université Paris Cité</li>
+          </ul>
         </div>
       </div>
-      <div class="prac__copy" data-stagger="90">
-        <span class="eyebrow" data-reveal="up">Le praticien</span>
-        <h2 class="prac__name" data-reveal="up">Dr Steve <span>Toupenay</span></h2>
-        <div class="prac__role" data-reveal="up">Spécialiste qualifié en médecine bucco-dentaire</div>
-        <p class="prac__bio" data-reveal="up">Docteur en Chirurgie Dentaire et Docteur ès Sciences en Biologie Orale (Université Paris Diderot), le Dr Toupenay est spécialiste qualifié en médecine bucco-dentaire. Expert près la Cour d'Appel de Paris et agréé par la Cour de cassation, il a exercé quinze ans comme praticien hospitalier à l'APHP, où il a participé à la création du Centre de Référence des Malformations rares de la Face et de la Cavité Buccale.</p>
-        <ul class="prac__facts">
-          <li data-reveal="up"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D6CDF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Spécialiste qualifié en médecine bucco-dentaire</li>
-          <li data-reveal="up"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D6CDF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Expert près la Cour d'Appel de Paris · Cour de cassation</li>
-          <li data-reveal="up"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D6CDF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>15 ans praticien hospitalier — APHP</li>
-          <li data-reveal="up"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D6CDF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Ancien Maître de Conférence — Université Paris Cité</li>
-        </ul>
+    </div>
+
+    <div class="prac__one">
+      <div class="prac__wm" aria-hidden="true">Sougoumarin</div>
+      <div class="prac__grid prac__grid--rev">
+        <div class="prac__copy" data-stagger="90">
+          <h3 class="prac__name" data-reveal="up">Dr Dharani <span>Sougoumarin</span></h3>
+          <div class="prac__role" data-reveal="up">Chirurgien-dentiste · Chirurgie orale · Associé</div>
+          <p class="prac__bio" data-reveal="up">Chirurgien-dentiste associé du cabinet qu'il a rejoint en 2018, le Dr Sougoumarin partage la même exigence clinique et le souci d'une prise en charge personnalisée. Il accompagne ses patients en soins courants, en chirurgie orale et en implantologie, dans le respect des données acquises de la science.</p>
+          <ul class="prac__facts">
+            <li data-reveal="up"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D6CDF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Chirurgien-dentiste associé</li>
+            <li data-reveal="up"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D6CDF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Chirurgie orale &amp; implantologie</li>
+            <li data-reveal="up"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D6CDF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Au cabinet depuis 2018</li>
+            <li data-reveal="up"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D6CDF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Formations continues — données acquises de la science</li>
+          </ul>
+        </div>
+        <div class="prac__media" data-reveal="right">
+          <div class="prac__frame">
+            <div class="prac__backdrop"></div>
+            <img class="prac__img" src="images/dr_sougoumarin.jpg" alt="Portrait du Dr Dharani Sougoumarin">
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -382,11 +417,10 @@
   <!-- ============ 5. L'ÉQUIPE ============ -->
   <section class="team" id="equipe" aria-label="L'équipe">
     <div class="team__head">
-      <h2 data-reveal="up">Six personnes,<br>un même engagement</h2>
+      <h2 data-reveal="up">Cinq personnes,<br>un même engagement</h2>
       <p data-reveal="up" style="--rd:100ms">Praticiens et assistantes vous accompagnent à chaque étape de votre prise en charge.</p>
     </div>
     <div class="team__grid" data-stagger="80">
-      <article class="tcard" data-reveal="scale"><img src="images/dr_sougoumarin.jpg" alt="Dr Dharani Sougoumarin"><div class="tcard__info"><b>Dr Dharani Sougoumarin</b><span>Chirurgien-dentiste · Chirurgie orale</span></div></article>
       <article class="tcard" data-reveal="scale"><img src="images/garnier.jpg" alt="Dr Thomas Garnier-Nguyen"><div class="tcard__info"><b>Dr Thomas Garnier-Nguyen</b><span>Spécialiste · Implantologie</span></div></article>
       <article class="tcard" data-reveal="scale"><img src="images/narima.jpg" alt="Narima"><div class="tcard__info"><b>Narima</b><span>Assistante dentaire · Administratif</span></div></article>
       <article class="tcard" data-reveal="scale"><img src="images/charlene.jpg" alt="Charlène"><div class="tcard__info"><b>Charlène</b><span>Assistante dentaire · Expertises judiciaires</span></div></article>
