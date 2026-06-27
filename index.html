@@ -69,15 +69,15 @@
   .hpin { position: relative; background: var(--navy); }
   .hpin__sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; display: flex; align-items: center; }
   .hpin__track { display: flex; gap: 24px; padding: 0 clamp(20px,5vw,80px); will-change: transform; }
-  .hcard { position: relative; flex: 0 0 auto; width: clamp(300px,62vw,720px); height: 74vh; border-radius: 24px; overflow: hidden; background: var(--navy); }
-  .hcard--intro { display: flex; flex-direction: column; justify-content: center; gap: 18px; background: none; width: clamp(280px,42vw,480px); }
-  .hcard--intro h2 { font-size: clamp(36px,5vw,76px); font-weight: 800; text-transform: uppercase; letter-spacing: -.02em; line-height: .96; color: #fff; }
+  .hcard { position: relative; flex: 0 0 auto; width: clamp(300px,46vw,560px); height: 64vh; border-radius: 24px; overflow: hidden; background: var(--navy); }
+  .hcard--intro { display: flex; flex-direction: column; justify-content: center; gap: 18px; background: none; width: clamp(280px,34vw,420px); }
+  .hcard--intro h2 { font-size: clamp(34px,4vw,60px); font-weight: 800; text-transform: uppercase; letter-spacing: -.02em; line-height: .96; color: #fff; }
   .hcard--intro p { color: rgba(255,255,255,.6); max-width: 30ch; font-size: 16px; line-height: 1.6; }
   .hcard__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .hcard__veil { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,25,47,0) 38%, rgba(10,25,47,.86)); }
   .hcard__cap { position: absolute; left: 30px; right: 30px; bottom: 28px; color: #fff; }
   .hcard__num { font-family: monospace; font-size: 13px; color: var(--blue-l); margin-bottom: 10px; }
-  .hcard__cap h3 { font-size: clamp(26px,3.2vw,46px); font-weight: 800; text-transform: uppercase; letter-spacing: -.02em; line-height: 1; }
+  .hcard__cap h3 { font-size: clamp(24px,2.6vw,38px); font-weight: 800; text-transform: uppercase; letter-spacing: -.02em; line-height: 1; }
   .hcard__cap p { margin-top: 8px; font-size: 14px; color: rgba(255,255,255,.7); max-width: 34ch; }
   .hpin__hint { font-family: monospace; font-size: 12px; color: var(--blue2); letter-spacing: .06em; margin-top: 12px; }
   .hpin__bar { position: absolute; left: clamp(20px,5vw,80px); right: clamp(20px,5vw,80px); bottom: 30px; height: 2px; background: rgba(255,255,255,.18); border-radius: 2px; z-index: 5; }
@@ -99,13 +99,13 @@
   .expand__veil { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,25,47,.15) 0%, rgba(10,25,47,.4) 50%, rgba(10,25,47,.82) 100%); }
   .expand__overlay { position: absolute; inset: 0; z-index: 3; display: flex; flex-direction: column; justify-content: flex-end; padding: clamp(32px,6vw,96px); color: #fff; pointer-events: none; }
   .expand__overlay .eyebrow { margin-bottom: 18px; }
-  .expand__overlay h2 { font-size: clamp(34px,6.2vw,96px); font-weight: 800; text-transform: uppercase; letter-spacing: -.02em; line-height: .96; max-width: 17ch; }
+  .expand__overlay h2 { font-size: clamp(32px,4.6vw,68px); font-weight: 800; text-transform: uppercase; letter-spacing: -.02em; line-height: .96; max-width: 17ch; }
 
   /* =====================================================================
      4. LE PRATICIEN — portrait flottant + révélations
      ===================================================================== */
-  .prac { position: relative; overflow: hidden; background: var(--navy); padding: clamp(60px,9vw,140px) clamp(22px,6vw,96px); }
-  .prac__wm { position: absolute; left: 50%; top: 5%; transform: translateX(-50%); font-weight: 900; font-size: clamp(96px,23vw,360px); letter-spacing: -.04em; line-height: 1; color: #fff; opacity: .04; text-transform: uppercase; white-space: nowrap; pointer-events: none; }
+  .prac { position: relative; overflow: hidden; background: var(--navy); padding: clamp(56px,7vw,108px) clamp(22px,5vw,80px); }
+  .prac__wm { position: absolute; left: 50%; top: 5%; transform: translateX(-50%); font-weight: 900; font-size: clamp(80px,16vw,260px); letter-spacing: -.04em; line-height: 1; color: #fff; opacity: .04; text-transform: uppercase; white-space: nowrap; pointer-events: none; }
   .prac__grid { position: relative; z-index: 2; display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(40px,6vw,96px); align-items: center; max-width: 1180px; margin: 0 auto; }
   .prac__frame { position: relative; width: min(420px,100%); margin: 0 auto; aspect-ratio: 3/4; }
   .prac__backdrop { position: absolute; right: -18px; bottom: -18px; width: 80%; height: 80%; background: var(--blue); border-radius: 26px; }
@@ -115,7 +115,7 @@
   .prac__badge span { display: block; font-size: 11px; color: #6a7686; }
   .prac__copy { max-width: 48ch; }
   .prac__copy .eyebrow { color: var(--blue2); margin-bottom: 20px; }
-  .prac__name { font-weight: 800; text-transform: uppercase; letter-spacing: -.02em; line-height: .96; font-size: clamp(38px,5.4vw,74px); color: #fff; }
+  .prac__name { font-weight: 800; text-transform: uppercase; letter-spacing: -.02em; line-height: .96; font-size: clamp(34px,4vw,56px); color: #fff; }
   .prac__name span { color: var(--blue2); }
   .prac__role { font-size: clamp(14px,1.3vw,17px); font-weight: 600; color: var(--blue-l); margin-top: 16px; }
   .prac__bio { font-size: clamp(15px,1.3vw,17px); line-height: 1.72; color: rgba(255,255,255,.72); margin-top: 22px; }
@@ -132,11 +132,11 @@
   /* =====================================================================
      5. L'ÉQUIPE — grille N&B → couleur
      ===================================================================== */
-  .team { background: var(--navy2); padding: clamp(56px,8vw,120px) clamp(22px,5vw,80px); }
+  .team { background: var(--navy2); padding: clamp(52px,6vw,96px) clamp(22px,5vw,80px); }
   .team__head { max-width: 1180px; margin: 0 auto clamp(36px,5vw,60px); display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
-  .team__head h2 { font-size: clamp(30px,4.4vw,62px); font-weight: 800; text-transform: uppercase; letter-spacing: -.02em; line-height: 1; color: #fff; max-width: 16ch; }
+  .team__head h2 { font-size: clamp(28px,3.4vw,48px); font-weight: 800; text-transform: uppercase; letter-spacing: -.02em; line-height: 1; color: #fff; max-width: 16ch; }
   .team__head p { font-size: 15px; line-height: 1.6; color: rgba(255,255,255,.65); max-width: 38ch; }
-  .team__grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
+  .team__grid { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
   .tcard { position: relative; border-radius: 18px; overflow: hidden; background: var(--navy); aspect-ratio: 3/4; }
   .tcard img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: grayscale(100%) contrast(1.02); transition: filter .5s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
   .tcard:hover img { filter: none; transform: scale(1.05); }
@@ -149,33 +149,58 @@
   /* =====================================================================
      HISTOIRE — frise chronologique
      ===================================================================== */
-  .story { position: relative; overflow: hidden; background: var(--navy2); color: #fff; padding: clamp(64px,9vw,150px) clamp(22px,6vw,96px); }
+  .story { position: relative; overflow: hidden; background: var(--navy2); color: #fff; padding: clamp(56px,7vw,110px) clamp(22px,5vw,80px); }
   .story::before { content: ""; position: absolute; width: 54vw; height: 54vw; right: -16vw; top: -18vw; background: radial-gradient(circle, rgba(45,108,223,.16), transparent 60%); pointer-events: none; }
   .story__head { position: relative; z-index: 2; max-width: 1080px; margin: 0 auto clamp(40px,5vw,70px); }
-  .story__head h2 { font-size: clamp(34px,5.5vw,84px); font-weight: 800; text-transform: uppercase; letter-spacing: -.025em; line-height: .96; margin-top: 16px; }
+  .story__head h2 { font-size: clamp(30px,4.2vw,62px); font-weight: 800; text-transform: uppercase; letter-spacing: -.025em; line-height: .96; margin-top: 16px; }
   .story__head p { margin-top: 22px; max-width: 52ch; color: rgba(255,255,255,.7); font-size: clamp(15px,1.4vw,18px); line-height: 1.6; }
   .story__line { position: relative; z-index: 2; max-width: 1080px; margin: 0 auto; }
   .story__item { display: grid; grid-template-columns: minmax(110px,210px) 1fr; gap: clamp(20px,5vw,64px); padding: clamp(28px,4vw,52px) 0; border-top: 1px solid rgba(255,255,255,.12); }
   .story__item:last-child { border-bottom: 1px solid rgba(255,255,255,.12); }
-  .story__year { font-weight: 800; font-size: clamp(40px,6vw,92px); letter-spacing: -.03em; line-height: .9; color: var(--blue2); }
+  .story__year { font-weight: 800; font-size: clamp(34px,4.4vw,66px); letter-spacing: -.03em; line-height: .9; color: var(--blue2); }
   .story__body h3 { font-size: clamp(19px,2.2vw,28px); font-weight: 700; color: #fff; }
   .story__body p { margin-top: 12px; max-width: 50ch; color: rgba(255,255,255,.68); font-size: clamp(15px,1.3vw,17px); line-height: 1.65; }
   @media (max-width: 680px) { .story__item { grid-template-columns: 1fr; gap: 10px; } }
 
   /* =====================================================================
-     NOS ENGAGEMENTS — démarche qualitative
+     FAQ — questions fréquentes (immersive : vidéo de fond + accordéon verre)
      ===================================================================== */
-  .engage { position: relative; background: var(--navy); padding: clamp(56px,8vw,120px) clamp(22px,5vw,80px); }
-  .engage__head { max-width: 1180px; margin: 0 auto clamp(36px,5vw,56px); }
-  .engage__head h2 { font-size: clamp(30px,4.4vw,62px); font-weight: 800; text-transform: uppercase; letter-spacing: -.02em; line-height: 1; color: #fff; max-width: 18ch; margin-top: 14px; }
-  .engage__grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-  .ecard { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 20px; padding: clamp(26px,3vw,40px); transition: transform .4s cubic-bezier(.2,.7,.2,1), border-color .3s ease, background .3s ease; }
-  .ecard:hover { transform: translateY(-6px); border-color: rgba(45,108,223,.5); background: rgba(45,108,223,.08); }
-  .ecard__icon { width: 50px; height: 50px; border-radius: 13px; background: rgba(45,108,223,.16); display: flex; align-items: center; justify-content: center; margin-bottom: 22px; }
-  .ecard__num { font-family: monospace; font-size: 12.5px; color: var(--blue-l); }
-  .ecard h3 { font-size: clamp(19px,1.9vw,25px); font-weight: 700; color: #fff; margin-top: 6px; }
-  .ecard p { margin-top: 13px; color: rgba(255,255,255,.66); line-height: 1.62; font-size: 14.5px; }
-  @media (max-width: 860px) { .engage__grid { grid-template-columns: 1fr; } }
+  .faq { position: relative; overflow: hidden; isolation: isolate; background: var(--navy); padding: clamp(72px,10vw,150px) clamp(22px,5vw,80px); }
+  .faq__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+  .faq__veil { position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(180deg, rgba(10,25,47,.92) 0%, rgba(10,25,47,.78) 45%, rgba(10,25,47,.9) 100%),
+               radial-gradient(120% 80% at 80% 10%, rgba(30,58,138,.45), transparent 60%); }
+  .faq__inner { position: relative; z-index: 2; max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(36px,5vw,80px); align-items: start; }
+  .faq__aside { position: sticky; top: 100px; }
+  .faq__aside .eyebrow { color: var(--blue-l); }
+  .faq__title { margin-top: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: -.025em; line-height: .98; color: #fff; font-size: clamp(32px,3.8vw,54px); }
+  .faq__lead { margin-top: 18px; max-width: 34ch; font-size: 15px; line-height: 1.7; color: rgba(255,255,255,.74); }
+  .faq__call { display: inline-flex; align-items: center; gap: 14px; margin-top: 28px; padding: 13px 24px 13px 14px; border-radius: 15px; text-decoration: none;
+    background: var(--blue); box-shadow: 0 18px 36px -20px rgba(30,58,138,.9); transition: background .25s ease, transform .25s ease; }
+  .faq__call:hover { background: var(--blue2); transform: translateY(-2px); }
+  .faq__callicon { flex: none; width: 42px; height: 42px; border-radius: 11px; background: rgba(255,255,255,.16); display: flex; align-items: center; justify-content: center; }
+  .faq__call small { display: block; font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.72); }
+  .faq__call b { display: block; font-size: 17px; font-weight: 800; color: #fff; letter-spacing: -.01em; }
+
+  .faq__list { border-radius: 22px; padding: clamp(8px,1.4vw,18px) clamp(16px,2vw,28px);
+    background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+    backdrop-filter: blur(16px) saturate(1.1); -webkit-backdrop-filter: blur(16px) saturate(1.1);
+    box-shadow: 0 40px 80px -40px rgba(0,0,0,.7); }
+  .faq__item { border-bottom: 1px solid rgba(255,255,255,.1); }
+  .faq__item:last-child { border-bottom: 0; }
+  .faq__q { all: unset; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 22px; width: 100%; padding: clamp(18px,2.2vw,24px) 2px; cursor: pointer; }
+  .faq__q h3 { font-size: clamp(16px,1.5vw,19px); font-weight: 600; color: #fff; line-height: 1.4; transition: color .2s ease; }
+  .faq__q:hover h3, .faq__item.open .faq__q h3 { color: var(--blue-l); }
+  .faq__icon { flex: none; position: relative; width: 30px; height: 30px; border-radius: 50%; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); transition: background .25s ease; }
+  .faq__item.open .faq__icon { background: var(--blue); border-color: transparent; }
+  .faq__icon::before, .faq__icon::after { content: ""; position: absolute; left: 50%; top: 50%; background: #fff; border-radius: 2px; transition: transform .3s cubic-bezier(.2,.7,.2,1); }
+  .faq__icon::before { width: 12px; height: 2px; transform: translate(-50%,-50%); }
+  .faq__icon::after { width: 2px; height: 12px; transform: translate(-50%,-50%); }
+  .faq__item.open .faq__icon::after { transform: translate(-50%,-50%) scaleY(0); }
+  .faq__a { overflow: hidden; height: 0; transition: height .35s cubic-bezier(.2,.7,.2,1); }
+  .faq__a p { padding: 0 40px 22px 2px; max-width: 64ch; font-size: 15px; line-height: 1.72; color: rgba(255,255,255,.74); }
+  .faq__a p + p { padding-top: 14px; }
+  @media (max-width: 880px) { .faq__inner { grid-template-columns: 1fr; gap: 30px; } .faq__aside { position: static; } }
 
   /* =====================================================================
      FOOTER
@@ -231,20 +256,20 @@
     <div class="herobottom" style="position:relative; z-index:3; display:flex; align-items:flex-end; justify-content:space-between; gap:24px; margin-top:auto;">
       <div style="display:flex; flex-wrap:wrap; gap:9px; max-width:440px;"></div>
       <div style="flex:none; width:min(360px,100%);">
-        <div style="display:flex; align-items:center; gap:14px; margin-bottom:14px; color:rgba(255,255,255,0.9);">
-          <span style="font-size:13px; font-weight:600;">‹</span>
-          <span style="font-family:monospace; font-size:12px;">01</span>
-          <span style="flex:1; height:2px; background:rgba(255,255,255,0.3); border-radius:2px; position:relative;"><span style="position:absolute; left:0; top:0; bottom:0; width:28%; background:#fff; border-radius:2px;"></span></span>
-          <span style="font-family:monospace; font-size:12px; opacity:0.6;">05</span>
-          <span style="font-size:13px; font-weight:600;">›</span>
+        <div id="heroCarousel" style="display:flex; align-items:center; gap:14px; margin-bottom:14px; color:rgba(255,255,255,0.9);">
+          <button type="button" data-hero="prev" aria-label="Fiche précédente" style="all:unset; cursor:pointer; font-size:13px; font-weight:600; line-height:1; padding:4px; border-radius:6px; transition:opacity .2s ease;">‹</button>
+          <span data-hero="cur" style="font-family:monospace; font-size:12px;">01</span>
+          <span style="flex:1; height:2px; background:rgba(255,255,255,0.3); border-radius:2px; position:relative;"><span data-hero="bar" style="position:absolute; left:0; top:0; bottom:0; width:20%; background:#fff; border-radius:2px; transition:width .45s cubic-bezier(.4,0,.2,1);"></span></span>
+          <span data-hero="total" style="font-family:monospace; font-size:12px; opacity:0.6;">05</span>
+          <button type="button" data-hero="next" aria-label="Fiche suivante" style="all:unset; cursor:pointer; font-size:13px; font-weight:600; line-height:1; padding:4px; border-radius:6px; transition:opacity .2s ease;">›</button>
         </div>
-        <div style="background:#fff; border-radius:18px; padding:14px; display:flex; align-items:center; gap:14px; box-shadow:0 18px 40px -18px rgba(0,0,0,0.4);">
-          <img src="images/steve_toupenay.jpg" alt="Dr Toupenay" style="flex:none; width:58px; height:58px; border-radius:12px; object-fit:cover; object-position:center 22%;">
+        <div data-hero="card" style="background:#fff; border-radius:18px; padding:14px; display:flex; align-items:center; gap:14px; box-shadow:0 18px 40px -18px rgba(0,0,0,0.4); transition:opacity .35s ease;">
+          <img data-hero="img" src="images/steve_toupenay.jpg" alt="Dr Steve Toupenay" style="flex:none; width:58px; height:58px; border-radius:12px; object-fit:cover; object-position:center 22%;">
           <div style="flex:1;">
-            <div style="font-weight:700; font-size:15px; color:#0A192F;">Dr Steve Toupenay</div>
-            <div style="font-size:12px; color:#6a7686;">Spécialiste en médecine bucco-dentaire</div>
+            <div data-hero="name" style="font-weight:700; font-size:15px; color:#0A192F;">Dr Steve Toupenay</div>
+            <div data-hero="role" style="font-size:12px; color:#6a7686;">Spécialiste en médecine bucco-dentaire</div>
             <div style="height:1px; background:#eceff3; margin:8px 0;"></div>
-            <div style="font-size:12px; color:#0A192F; font-weight:600;">Expert près la Cour d'Appel de Paris</div>
+            <div data-hero="tag" style="font-size:12px; color:#0A192F; font-weight:600;">Expert près la Cour d'Appel de Paris</div>
           </div>
         </div>
       </div>
@@ -337,10 +362,6 @@
         <div class="prac__frame">
           <div class="prac__backdrop"></div>
           <img class="prac__img" src="images/steve_toupenay.jpg" alt="Portrait du Dr Steve Toupenay">
-          <div class="prac__badge">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2D6CDF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-            <span><b>Expert</b><span>Cour d'Appel de Paris</span></span>
-          </div>
         </div>
       </div>
       <div class="prac__copy" data-stagger="90">
@@ -361,11 +382,10 @@
   <!-- ============ 5. L'ÉQUIPE ============ -->
   <section class="team" id="equipe" aria-label="L'équipe">
     <div class="team__head">
-      <h2 data-reveal="up">Sept personnes,<br>un même engagement</h2>
+      <h2 data-reveal="up">Six personnes,<br>un même engagement</h2>
       <p data-reveal="up" style="--rd:100ms">Praticiens et assistantes vous accompagnent à chaque étape de votre prise en charge.</p>
     </div>
     <div class="team__grid" data-stagger="80">
-      <article class="tcard" data-reveal="scale"><img src="images/steve_toupenay.jpg" alt="Dr Steve Toupenay"><div class="tcard__info"><b>Dr Steve Toupenay</b><span>Spécialiste · médecine bucco-dentaire</span></div></article>
       <article class="tcard" data-reveal="scale"><img src="images/dr_sougoumarin.jpg" alt="Dr Dharani Sougoumarin"><div class="tcard__info"><b>Dr Dharani Sougoumarin</b><span>Chirurgien-dentiste · Chirurgie orale</span></div></article>
       <article class="tcard" data-reveal="scale"><img src="images/garnier.jpg" alt="Dr Thomas Garnier-Nguyen"><div class="tcard__info"><b>Dr Thomas Garnier-Nguyen</b><span>Spécialiste · Implantologie</span></div></article>
       <article class="tcard" data-reveal="scale"><img src="images/narima.jpg" alt="Narima"><div class="tcard__info"><b>Narima</b><span>Assistante dentaire · Administratif</span></div></article>
@@ -375,31 +395,48 @@
     </div>
   </section>
 
-  <!-- ============ NOS ENGAGEMENTS — démarche qualitative ============ -->
-  <section class="engage" id="engagements" aria-label="Nos engagements">
-    <div class="engage__head">
-      <span class="eyebrow" data-reveal="up">Démarche qualitative</span>
-      <h2 data-reveal="up" style="--rd:60ms">Nos engagements<br>pour votre sécurité</h2>
-    </div>
-    <div class="engage__grid" data-stagger="110">
-      <article class="ecard" data-reveal="up">
-        <div class="ecard__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9FC0F0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2 3 6 3s6-2 6-3v-5"/></svg></div>
-        <div class="ecard__num">01</div>
-        <h3>Formations continues</h3>
-        <p>Nos praticiens suivent et dispensent des formations continues, pour des soins conformes aux données acquises de la science.</p>
-      </article>
-      <article class="ecard" data-reveal="up">
-        <div class="ecard__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9FC0F0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></div>
-        <div class="ecard__num">02</div>
-        <h3>Hygiène &amp; aseptie</h3>
-        <p>Protocoles stricts aux normes NF : désinfection et stérilisation des instruments, et récupération des matériaux pour préserver l'environnement.</p>
-      </article>
-      <article class="ecard" data-reveal="up">
-        <div class="ecard__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9FC0F0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/></svg></div>
-        <div class="ecard__num">03</div>
-        <h3>Transparence</h3>
-        <p>Cabinet conventionné : un devis détaillé établi selon la CCAM vous est remis pour chaque traitement, en toute clarté.</p>
-      </article>
+  <!-- ============ FAQ — questions fréquentes ============ -->
+  <section class="faq" id="faq" aria-label="Questions fréquentes">
+    <video class="faq__video" data-bg src="https://videos.pexels.com/video-files/18203708/18203708-hd_1920_1080_60fps.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+    <div class="faq__veil" aria-hidden="true"></div>
+
+    <div class="faq__inner">
+      <div class="faq__aside">
+        <span class="eyebrow" data-reveal="up">Questions fréquentes</span>
+        <h2 class="faq__title" data-reveal="up" style="--rd:80ms">Vos questions,<br>nos réponses</h2>
+        <p class="faq__lead" data-reveal="up" style="--rd:150ms">Tout ce qu'il faut savoir avant votre venue. Une interrogation qui n'est pas listée ?</p>
+        <a href="tel:0160862971" class="faq__call" data-reveal="up" style="--rd:220ms">
+          <span class="faq__callicon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <span><small>Appelez le cabinet</small><b>01 60 86 29 71</b></span>
+        </a>
+      </div>
+
+      <div class="faq__list" data-reveal="up" style="--rd:120ms">
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-expanded="false"><h3>Prenez-vous en charge les urgences dentaires ?</h3><span class="faq__icon" aria-hidden="true"></span></button>
+          <div class="faq__a"><p>Oui. En cas de douleur aiguë, de traumatisme ou d'abcès, appelez le cabinet dès l'ouverture : nous nous efforçons de vous recevoir le jour même selon les disponibilités. En dehors des horaires, composez le 15 (SAMU) qui vous orientera vers la garde dentaire.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-expanded="false"><h3>Comment se passe le remboursement de mes soins ?</h3><span class="faq__icon" aria-hidden="true"></span></button>
+          <div class="faq__a"><p>Le cabinet est conventionné : vos soins sont pris en charge par l'Assurance Maladie selon la base de remboursement, puis complétés par votre mutuelle. Un devis détaillé établi selon la nomenclature CCAM vous est remis avant tout traitement, en toute transparence.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-expanded="false"><h3>Pratiquez-vous le tiers payant ?</h3><span class="faq__icon" aria-hidden="true"></span></button>
+          <div class="faq__a"><p>Nous appliquons le tiers payant sur la part Sécurité sociale, et sur la part mutuelle lorsque votre complémentaire le permet. Munissez-vous de votre carte Vitale à jour et de votre carte de mutuelle lors de votre venue.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-expanded="false"><h3>Faut-il une ordonnance pour consulter ?</h3><span class="faq__icon" aria-hidden="true"></span></button>
+          <div class="faq__a"><p>Non, aucune ordonnance n'est nécessaire pour un rendez-vous au cabinet : vous pouvez nous contacter directement. Si vous êtes adressé par un confrère, apportez son courrier ainsi que vos éventuels examens (radios, bilans) pour faciliter la prise en charge.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-expanded="false"><h3>Comment se déroule une première consultation ?</h3><span class="faq__icon" aria-hidden="true"></span></button>
+          <div class="faq__a"><p>La première visite est dédiée à un bilan complet : examen clinique, radiographies si besoin, et échange sur vos attentes. Le praticien établit ensuite un plan de soin personnalisé accompagné d'un devis, sans engagement, avant de débuter le moindre traitement.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-expanded="false"><h3>Le cabinet est-il accessible aux personnes à mobilité réduite ?</h3><span class="faq__icon" aria-hidden="true"></span></button>
+          <div class="faq__a"><p>Oui, nos locaux de plus de 300&nbsp;m² sont conçus pour être accessibles aux personnes à mobilité réduite, avec un accès de plain-pied aux salles de soin. N'hésitez pas à nous signaler tout besoin particulier lors de la prise de rendez-vous.</p></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -599,7 +636,7 @@
       { sel: '.story',  type: 'pause',   hold: PAUSE_HOLD },
       { sel: '.prac',   type: 'pause',   hold: PAUSE_HOLD },
       { sel: '.team',   type: 'pause',   hold: PAUSE_HOLD },
-      { sel: '.engage', type: 'pause',   hold: PAUSE_HOLD },
+      { sel: '.faq',    type: 'pause',   hold: PAUSE_HOLD },
       { sel: 'footer',  type: 'pause',   hold: 3 }
     ];
 
@@ -658,6 +695,109 @@
     if (location.hash === '#demo') setTimeout(start, 1000);
   }
 
+  /* ---------- Hero carousel (praticiens & équipe) ---------- */
+  function initHeroCarousel() {
+    var root = D.getElementById('heroCarousel');
+    if (!root) return;
+    var card = D.querySelector('[data-hero="card"]');
+    if (!card) return;
+
+    var people = [
+      { img: 'images/steve_toupenay.jpg', name: 'Dr Steve Toupenay',      role: 'Spécialiste en médecine bucco-dentaire', tag: "Expert près la Cour d'Appel de Paris" },
+      { img: 'images/dr_sougoumarin.jpg', name: 'Dr Dharani Sougoumarin', role: 'Chirurgien-dentiste · Chirurgie orale',     tag: 'Chirurgie orale & implantologie' },
+      { img: 'images/garnier.jpg',        name: 'Dr Thomas Garnier-Nguyen', role: 'Spécialiste · Implantologie',            tag: 'Pose et restauration sur implants' },
+      { img: 'images/narima.jpg',         name: 'Narima',                  role: 'Assistante dentaire · Administratif',     tag: 'Accueil & gestion des dossiers' },
+      { img: 'images/charlene.jpg',       name: 'Charlène',                role: 'Assistante dentaire · Expertises',        tag: 'Expertises judiciaires' }
+    ];
+
+    var elImg   = D.querySelector('[data-hero="img"]');
+    var elName  = D.querySelector('[data-hero="name"]');
+    var elRole  = D.querySelector('[data-hero="role"]');
+    var elTag   = D.querySelector('[data-hero="tag"]');
+    var elCur   = root.querySelector('[data-hero="cur"]');
+    var elTotal = root.querySelector('[data-hero="total"]');
+    var elBar   = root.querySelector('[data-hero="bar"]');
+    var prev    = root.querySelector('[data-hero="prev"]');
+    var next    = root.querySelector('[data-hero="next"]');
+
+    var total = people.length;
+    var i = 0;
+    var auto = null;
+    var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+
+    elTotal.textContent = pad(total);
+
+    function render() {
+      var p = people[i];
+      card.style.opacity = '0';
+      window.setTimeout(function () {
+        elImg.src = p.img; elImg.alt = p.name;
+        elName.textContent = p.name;
+        elRole.textContent = p.role;
+        elTag.textContent  = p.tag;
+        card.style.opacity = '1';
+      }, reduce ? 0 : 180);
+      elCur.textContent = pad(i + 1);
+      elBar.style.width = ((i + 1) / total * 100) + '%';
+    }
+    function go(d) { i = (i + d + total) % total; render(); }
+
+    prev.addEventListener('click', function () { go(-1); restart(); });
+    next.addEventListener('click', function () { go(1);  restart(); });
+
+    // navigation clavier quand le carrousel est focus
+    root.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft')  { go(-1); restart(); }
+      if (e.key === 'ArrowRight') { go(1);  restart(); }
+    });
+
+    function start() {
+      if (reduce) return;
+      auto = window.setInterval(function () { go(1); }, 5000);
+    }
+    function stop() { if (auto) { clearInterval(auto); auto = null; } }
+    function restart() { stop(); start(); }
+
+    // pause au survol
+    var hover = root.parentElement;
+    hover.addEventListener('mouseenter', stop);
+    hover.addEventListener('mouseleave', start);
+
+    render();
+    start();
+  }
+
+  /* ---------- FAQ accordéon ---------- */
+  function initFaq() {
+    var items = Array.prototype.slice.call(D.querySelectorAll('.faq__item'));
+    if (!items.length) return;
+
+    function close(it) {
+      it.classList.remove('open');
+      it.querySelector('.faq__a').style.height = '0px';
+      it.querySelector('.faq__q').setAttribute('aria-expanded', 'false');
+    }
+    function open(it) {
+      it.classList.add('open');
+      var a = it.querySelector('.faq__a');
+      a.style.height = a.scrollHeight + 'px';
+      it.querySelector('.faq__q').setAttribute('aria-expanded', 'true');
+    }
+
+    items.forEach(function (it) {
+      it.querySelector('.faq__q').addEventListener('click', function () {
+        var isOpen = it.classList.contains('open');
+        items.forEach(function (o) { if (o !== it) close(o); });
+        if (isOpen) close(it); else open(it);
+      });
+    });
+
+    window.addEventListener('resize', function () {
+      var op = D.querySelector('.faq__item.open .faq__a');
+      if (op) op.style.height = op.scrollHeight + 'px';
+    });
+  }
+
   function boot() {
     try { initLenis(); } catch (e) {}
     try { initDemo(); } catch (e) {}
@@ -666,6 +806,8 @@
     try { initExpand(); } catch (e) {}
     try { initCounters(); } catch (e) {}
     try { initVideos(); } catch (e) {}
+    try { initHeroCarousel(); } catch (e) {}
+    try { initFaq(); } catch (e) {}
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
