@@ -33,7 +33,7 @@
   /* ---------- header hover states ---------- */
   .navcenter a { white-space: nowrap; }
   .nav-active:hover { background: rgba(255,255,255,0.16) !important; }
-  .nav-link:hover   { background: rgba(255,255,255,0.07) !important; color: #fff !important; }
+  .nav-link:hover   { background: rgba(255,255,255,0.10) !important; color: #fff !important; }
   .icon-tab:hover   { background: rgba(255,255,255,0.16) !important; }
   .phone-cta:hover  { background: #274aa8 !important; }
   .flink:hover      { color: #fff !important; }
@@ -143,8 +143,8 @@
   .team__head { max-width: 1180px; margin: 0 auto clamp(36px,5vw,60px); display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
   .team__head h2 { font-size: clamp(28px,3.4vw,48px); font-weight: 800; text-transform: uppercase; letter-spacing: -.02em; line-height: 1; color: #fff; max-width: 16ch; }
   .team__head p { font-size: 15px; line-height: 1.6; color: rgba(255,255,255,.65); max-width: 38ch; }
-  .team__grid { max-width: 960px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; }
-  .team__grid .tcard { flex: 1 1 280px; max-width: 300px; }
+  .team__grid { max-width: 1080px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; }
+  .team__grid .tcard { flex: 1 1 240px; max-width: 250px; }
   .tcard { position: relative; border-radius: 18px; overflow: hidden; background: var(--navy); aspect-ratio: 3/4; }
   .tcard img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: grayscale(100%) contrast(1.02); transition: filter .5s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
   .tcard:hover img { filter: none; transform: scale(1.05); }
@@ -229,12 +229,13 @@
         <span style="font-weight:600; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#6a7686;">Cabinet Dentaire</span>
       </div>
     </div>
-    <nav class="navcenter" style="flex:1; display:flex; align-items:stretch;">
-      <a href="#cabinet" class="nav-active" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(16px,1.8vw,30px); font-size:16px; font-weight:600; color:#fff; text-decoration:none; background:rgba(255,255,255,0.09); border-bottom-left-radius:18px; border-bottom-right-radius:18px; transition:background .2s ease;">Le Cabinet</a>
-      <a href="#soins" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(16px,1.8vw,30px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.78); text-decoration:none; transition:background .2s ease, color .2s ease;">Soins &amp; Prothèses</a>
-      <a href="#equipe" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(16px,1.8vw,30px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.78); text-decoration:none; transition:background .2s ease, color .2s ease;">L'Équipe</a>
-      <a href="#histoire" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(16px,1.8vw,30px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.78); text-decoration:none; transition:background .2s ease, color .2s ease;">Histoire</a>
-      <a href="#contact" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(16px,1.8vw,30px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.78); text-decoration:none; transition:background .2s ease, color .2s ease;">Contact</a>
+    <nav class="navcenter" style="flex:1; display:flex; align-items:stretch; position:relative;">
+      <a href="#cabinet" class="nav-active" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px); font-size:16px; font-weight:600; color:#fff; text-decoration:none; background:#24487A; border-bottom-left-radius:26px; border-bottom-right-radius:26px; position:relative; z-index:6; transition:background .2s ease;">Le cabinet</a>
+      <a href="#equipe" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#1E406E; border-bottom-left-radius:26px; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:5; transition:background .2s ease, color .2s ease;">L'équipe</a>
+      <a href="#histoire" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#193760; border-bottom-left-radius:26px; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:4; transition:background .2s ease, color .2s ease;">Histoire</a>
+      <a href="#" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#142E51; border-bottom-left-radius:26px; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:3; transition:background .2s ease, color .2s ease;">Démarche qualitative</a>
+      <a href="#" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#0F2541; border-bottom-left-radius:26px; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:2; transition:background .2s ease, color .2s ease;">Démarche thérapeutique</a>
+      <a href="#" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#0A192F; border-bottom-left-radius:26px; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:1; transition:background .2s ease, color .2s ease;">Accès</a>
     </nav>
     <div style="flex:none; margin-left:auto; display:flex; align-items:center; gap:8px; padding:0 16px;">
       <a href="mailto:contact@villabe-dental.fr" class="icon-tab" style="width:40px; height:40px; border-radius:10px; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; text-decoration:none; transition:background .2s ease;">
@@ -360,67 +361,16 @@
     </div>
   </section>
 
-  <!-- ============ 4. LES PRATICIENS ASSOCIÉS ============ -->
-  <section class="prac" id="praticien" aria-label="Les praticiens associés">
-    <div class="prac__head">
-      <span class="eyebrow" data-reveal="up">Les associés</span>
-      <h2 class="prac__heading" data-reveal="up" style="--rd:80ms">Deux praticiens,<br>une même exigence</h2>
-    </div>
-
-    <div class="prac__one">
-      <div class="prac__wm" aria-hidden="true">Toupenay</div>
-      <div class="prac__grid">
-        <div class="prac__media" data-reveal="left">
-          <div class="prac__frame">
-            <div class="prac__backdrop"></div>
-            <img class="prac__img" src="images/steve_toupenay.jpg" alt="Portrait du Dr Steve Toupenay">
-          </div>
-        </div>
-        <div class="prac__copy" data-stagger="90">
-          <h3 class="prac__name" data-reveal="up">Dr Steve <span>Toupenay</span></h3>
-          <div class="prac__role" data-reveal="up">Spécialiste qualifié en médecine bucco-dentaire · Associé</div>
-          <p class="prac__bio" data-reveal="up">Docteur en Chirurgie Dentaire et Docteur ès Sciences en Biologie Orale (Université Paris Diderot), le Dr Toupenay est spécialiste qualifié en médecine bucco-dentaire. Expert près la Cour d'Appel de Paris et agréé par la Cour de cassation, il a exercé quinze ans comme praticien hospitalier à l'APHP, où il a participé à la création du Centre de Référence des Malformations rares de la Face et de la Cavité Buccale.</p>
-          <ul class="prac__facts">
-            <li data-reveal="up"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D6CDF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Spécialiste qualifié en médecine bucco-dentaire</li>
-            <li data-reveal="up"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D6CDF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Expert près la Cour d'Appel de Paris · Cour de cassation</li>
-            <li data-reveal="up"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D6CDF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>15 ans praticien hospitalier — APHP</li>
-            <li data-reveal="up"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D6CDF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Ancien Maître de Conférence — Université Paris Cité</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="prac__one">
-      <div class="prac__wm" aria-hidden="true">Sougoumarin</div>
-      <div class="prac__grid prac__grid--rev">
-        <div class="prac__copy" data-stagger="90">
-          <h3 class="prac__name" data-reveal="up">Dr Dharani <span>Sougoumarin</span></h3>
-          <div class="prac__role" data-reveal="up">Chirurgien-dentiste · Chirurgie orale · Associé</div>
-          <p class="prac__bio" data-reveal="up">Chirurgien-dentiste associé du cabinet qu'il a rejoint en 2018, le Dr Sougoumarin partage la même exigence clinique et le souci d'une prise en charge personnalisée. Il accompagne ses patients en soins courants, en chirurgie orale et en implantologie, dans le respect des données acquises de la science.</p>
-          <ul class="prac__facts">
-            <li data-reveal="up"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D6CDF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Chirurgien-dentiste associé</li>
-            <li data-reveal="up"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D6CDF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Chirurgie orale &amp; implantologie</li>
-            <li data-reveal="up"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D6CDF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Au cabinet depuis 2018</li>
-            <li data-reveal="up"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D6CDF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Formations continues — données acquises de la science</li>
-          </ul>
-        </div>
-        <div class="prac__media" data-reveal="right">
-          <div class="prac__frame">
-            <div class="prac__backdrop"></div>
-            <img class="prac__img" src="images/dr_sougoumarin.jpg" alt="Portrait du Dr Dharani Sougoumarin">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 5. L'ÉQUIPE ============ -->
-  <section class="team" id="equipe" aria-label="L'équipe">
+  <!-- ============ 4. L'ÉQUIPE (associés + équipe, niveau unique) ============ -->
+  <section class="team" id="equipe" aria-label="L'équipe" tabindex="-1">
+    <span id="praticien" style="position:absolute; margin-top:-90px;" aria-hidden="true"></span>
     <div class="team__head">
-      <h2 data-reveal="up">Cinq personnes,<br>un même engagement</h2>
-      <p data-reveal="up" style="--rd:100ms">Praticiens et assistantes vous accompagnent à chaque étape de votre prise en charge.</p>
+      <h2 data-reveal="up">L'équipe<br>du cabinet</h2>
+      <p data-reveal="up" style="--rd:100ms">Praticiens et assistantes vous accompagnent à chaque étape de votre prise en charge, dans une même exigence de soin.</p>
     </div>
     <div class="team__grid" data-stagger="80">
+      <article class="tcard" data-reveal="scale"><img src="images/steve_toupenay.jpg" alt="Portrait du Dr Steve Toupenay"><div class="tcard__info"><b>Dr Steve Toupenay</b><span>Spécialiste bucco-dentaire · Associé</span></div></article>
+      <article class="tcard" data-reveal="scale"><img src="images/dr_sougoumarin.jpg" alt="Portrait du Dr Dharani Sougoumarin"><div class="tcard__info"><b>Dr Dharani Sougoumarin</b><span>Chirurgien-dentiste · Associé</span></div></article>
       <article class="tcard" data-reveal="scale"><img src="images/garnier.jpg" alt="Dr Thomas Garnier-Nguyen"><div class="tcard__info"><b>Dr Thomas Garnier-Nguyen</b><span>Spécialiste · Implantologie</span></div></article>
       <article class="tcard" data-reveal="scale"><img src="images/narima.jpg" alt="Narima"><div class="tcard__info"><b>Narima</b><span>Assistante dentaire · Administratif</span></div></article>
       <article class="tcard" data-reveal="scale"><img src="images/charlene.jpg" alt="Charlène"><div class="tcard__info"><b>Charlène</b><span>Assistante dentaire · Expertises judiciaires</span></div></article>
