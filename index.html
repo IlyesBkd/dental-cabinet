@@ -32,8 +32,8 @@
 
   /* ---------- header hover states ---------- */
   .navcenter a { white-space: nowrap; }
-  .nav-active:hover { background: rgba(255,255,255,0.16) !important; }
-  .nav-link:hover   { background: rgba(255,255,255,0.10) !important; color: #fff !important; }
+  .nav-active:hover { background: #2C5490 !important; }
+  .nav-link:hover   { background: #23477C !important; color: #fff !important; }
   .icon-tab:hover   { background: rgba(255,255,255,0.16) !important; }
   .phone-cta:hover  { background: #274aa8 !important; }
   .flink:hover      { color: #fff !important; }
@@ -221,7 +221,7 @@
 
   <!-- ============ HEADER (inchangé) ============ -->
   <header style="position:sticky; top:0; z-index:100; display:flex; align-items:stretch; height:76px; background:#0A192F; margin:0; box-shadow:0 14px 34px -22px rgba(10,25,47,0.6);">
-    <div style="flex:none; display:flex; align-items:center; gap:13px; background:#F4F0E6; padding:0 30px 0 22px; border-bottom-right-radius:26px;">
+    <div style="flex:none; display:flex; align-items:center; gap:13px; background:#F4F0E6; padding:0 30px 0 22px; border-bottom-right-radius:26px; position:relative; z-index:7;">
       <img src="images/logo.svg" alt="Cabinet Dentaire Villabé Paris Sud" style="height:52px; width:auto;">
       <div style="width:1px; height:32px; background:rgba(10,25,47,0.18);"></div>
       <div style="display:flex; flex-direction:column; line-height:1.12;">
@@ -230,12 +230,12 @@
       </div>
     </div>
     <nav class="navcenter" style="flex:1; display:flex; align-items:stretch; position:relative;">
-      <a href="#cabinet" class="nav-active" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px); font-size:16px; font-weight:600; color:#fff; text-decoration:none; background:#24487A; border-bottom-left-radius:26px; border-bottom-right-radius:26px; position:relative; z-index:6; transition:background .2s ease;">Le cabinet</a>
-      <a href="#equipe" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#1E406E; border-bottom-left-radius:26px; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:5; transition:background .2s ease, color .2s ease;">L'équipe</a>
-      <a href="#histoire" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#193760; border-bottom-left-radius:26px; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:4; transition:background .2s ease, color .2s ease;">Histoire</a>
-      <a href="#" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#142E51; border-bottom-left-radius:26px; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:3; transition:background .2s ease, color .2s ease;">Démarche qualitative</a>
-      <a href="#" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#0F2541; border-bottom-left-radius:26px; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:2; transition:background .2s ease, color .2s ease;">Démarche thérapeutique</a>
-      <a href="#" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#0A192F; border-bottom-left-radius:26px; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:1; transition:background .2s ease, color .2s ease;">Accès</a>
+      <a href="#cabinet" class="nav-active" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:600; color:#fff; text-decoration:none; background:#24487A; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:6; transition:background .2s ease;">Le cabinet</a>
+      <a href="#equipe" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#1E406E; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:5; transition:background .2s ease, color .2s ease;">L'équipe</a>
+      <a href="#histoire" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#193760; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:4; transition:background .2s ease, color .2s ease;">Histoire</a>
+      <a href="#" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#142E51; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:3; transition:background .2s ease, color .2s ease;">Démarche qualitative</a>
+      <a href="#" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#0F2541; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:2; transition:background .2s ease, color .2s ease;">Démarche thérapeutique</a>
+      <a href="#" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#0A192F; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:1; transition:background .2s ease, color .2s ease;">Accès</a>
     </nav>
     <div style="flex:none; margin-left:auto; display:flex; align-items:center; gap:8px; padding:0 16px;">
       <a href="mailto:contact@villabe-dental.fr" class="icon-tab" style="width:40px; height:40px; border-radius:10px; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; text-decoration:none; transition:background .2s ease;">
