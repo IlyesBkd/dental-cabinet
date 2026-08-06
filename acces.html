@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accès — Cabinet Dentaire Villabé — Dr Toupenay &amp; Dr Sougoumarin</title>
+<meta name="description" content="Venir au cabinet dentaire de Villabé : adresse, accès routier (A6, N7, N104), distance depuis Paris, parking et zone PMR.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:#0A192F; --navy2:#0E2742; --blue:#1E3A8A; --blue2:#2D6CDF; --blue-l:#9FC0F0;
+    --cream:#ECE7DF; --ink:#14181B;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Archivo', -apple-system, sans-serif; color: #E8EEF6; background: var(--navy); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  ::selection { background: var(--navy); color: #fff; }
+  img { display: block; }
+  section[id], footer[id] { scroll-margin-top: 80px; }
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+  .lenis.lenis-stopped { overflow: hidden; }
+  .display { font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.98; }
+  .eyebrow { display: inline-block; font-size: 12.5px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--blue-l); }
+
+  /* ---------- header hover states ---------- */
+  .navcenter a { white-space: nowrap; }
+  .nav-active:hover { background: #2C5490 !important; }
+  .nav-link:hover   { background: #23477C !important; color: #fff !important; }
+  .icon-tab:hover   { background: rgba(255,255,255,0.16) !important; }
+  .phone-cta:hover  { background: #274aa8 !important; }
+  .flink:hover      { color: #fff !important; }
+  @media (max-width: 1040px) { .navcenter { display: none !important; } }
+  @media (max-width: 760px) { .footgrid { grid-template-columns: 1fr 1fr !important; } }
+  @media (max-width: 560px) { .footgrid { grid-template-columns: 1fr !important; } }
+
+  /* =====================================================================
+     SCROLL ANIMATION ENGINE — reveal variants (data-reveal)
+     ===================================================================== */
+  [data-reveal] { opacity: 0; transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1); transition-delay: var(--rd,0ms); will-change: opacity, transform; }
+  [data-reveal="up"]    { transform: translateY(44px); }
+  [data-reveal="scale"] { transform: translateY(38px) scale(.94); }
+  [data-reveal].is-in   { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal] { opacity: 1 !important; transform: none !important; }
+  }
+
+  /* =====================================================================
+     ACCÈS — infos + carte
+     ===================================================================== */
+  .rowfeat { position: relative; padding: clamp(126px,15vw,172px) clamp(22px,5vw,80px) clamp(56px,7vw,108px); }
+  .rowfeat__head { max-width: 1180px; margin: 0 auto clamp(48px,6vw,84px); }
+  .rowfeat__head .eyebrow { color: var(--blue2); }
+  .rowfeat__head h1 { margin-top: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: -.025em; line-height: .98; color: #fff; font-size: clamp(30px,3.8vw,52px); max-width: 20ch; }
+  .access__inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(36px,5vw,72px); align-items: start; }
+  .access__facts { display: flex; flex-direction: column; gap: clamp(26px,3vw,34px); }
+  .access__fact { display: flex; gap: 16px; }
+  .access__fact svg { flex: none; width: 42px; height: 42px; border-radius: 12px; background: rgba(255,255,255,.08); padding: 10px; box-sizing: border-box; }
+  .access__fact h2 { font-size: 15.5px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .access__fact p { font-size: 14.5px; line-height: 1.65; color: rgba(255,255,255,.68); max-width: 46ch; }
+  .access__map { position: relative; border-radius: 22px; overflow: hidden; aspect-ratio: 4/3.1; box-shadow: 0 34px 64px -32px rgba(0,0,0,.55); background: rgba(255,255,255,.05); }
+  .access__map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; filter: grayscale(.15) contrast(1.05); }
+  @media (max-width: 900px) { .access__inner { grid-template-columns: 1fr; } .access__map { order: -1; } }
+
+  /* =====================================================================
+     FOOTER
+     ===================================================================== */
+  .site-footer { background: #06101F; color: #fff; padding: clamp(48px,6vw,84px) clamp(22px,7vw,110px) clamp(26px,3vw,38px); }
+  .footgrid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: clamp(28px,4vw,56px); padding-bottom: 46px; border-bottom: 1px solid rgba(255,255,255,0.12); }
+</style>
+</head>
+<body>
+
+<div style="background:var(--navy); min-height:100vh;">
+
+  <!-- ============ HEADER ============ -->
+  <header style="position:sticky; top:0; z-index:100; display:flex; align-items:stretch; height:76px; background:#0A192F; margin:0; box-shadow:0 14px 34px -22px rgba(10,25,47,0.6);">
+    <div style="flex:none; display:flex; align-items:center; gap:13px; background:#F4F0E6; padding:0 30px 0 22px; border-bottom-right-radius:26px; position:relative; z-index:7;">
+      <img src="images/logo.svg" alt="Cabinet Dentaire Villabé Paris Sud" style="height:52px; width:auto;">
+      <div style="width:1px; height:32px; background:rgba(10,25,47,0.18);"></div>
+      <div style="display:flex; flex-direction:column; line-height:1.12;">
+        <span style="font-weight:800; font-size:19px; letter-spacing:-0.01em; color:#0A192F;">VILLABÉ</span>
+        <span style="font-weight:600; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#6a7686;">Cabinet Dentaire</span>
+      </div>
+    </div>
+    <nav class="navcenter" style="flex:1; display:flex; align-items:stretch; position:relative;">
+      <a href="index.html#cabinet" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#234876; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:6; transition:background .2s ease, color .2s ease;">Le cabinet</a>
+      <a href="equipe.html" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#1E406E; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:5; transition:background .2s ease, color .2s ease;">L'équipe</a>
+      <a href="histoire.html" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#193760; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:4; transition:background .2s ease, color .2s ease;">Histoire</a>
+      <a href="demarche-qualitative.html" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#142E51; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:3; transition:background .2s ease, color .2s ease;">Démarche qualitative</a>
+      <a href="demarche-therapeutique.html" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#0F2541; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:2; transition:background .2s ease, color .2s ease;">Démarche thérapeutique</a>
+      <a href="acces.html" class="nav-active" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:600; color:#fff; text-decoration:none; background:#24487A; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:1; transition:background .2s ease;">Accès</a>
+    </nav>
+    <div style="flex:none; margin-left:auto; display:flex; align-items:center; gap:8px; padding:0 16px;">
+      <a href="mailto:contact@villabe-dental.fr" class="icon-tab" style="width:40px; height:40px; border-radius:10px; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; text-decoration:none; transition:background .2s ease;">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+      </a>
+      <a href="#contact" class="icon-tab" style="width:40px; height:40px; border-radius:10px; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; text-decoration:none; transition:background .2s ease;">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </a>
+    </div>
+    <a href="tel:0160862971" class="phone-cta" style="flex:none; display:flex; align-items:center; gap:12px; background:#1E3A8A; padding:0 28px; text-decoration:none; border-bottom-left-radius:26px; transition:background .2s ease;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span style="display:flex; flex-direction:column; line-height:1.1;">
+        <span style="font-size:10px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:rgba(255,255,255,0.7);">Appelez-nous</span>
+        <span style="font-size:15px; font-weight:800; color:#fff;">01 60 86 29 71</span>
+      </span>
+    </a>
+  </header>
+
+  <!-- ============ ACCÈS ============ -->
+  <section class="rowfeat" id="acces" aria-label="Accès" style="background:var(--navy);">
+    <div class="rowfeat__head">
+      <span class="eyebrow" data-reveal="up">Accès</span>
+      <h1 data-reveal="up" style="--rd:60ms">Venir au cabinet</h1>
+    </div>
+    <div class="access__inner">
+      <div class="access__facts">
+        <div class="access__fact" data-reveal="up">
+          <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#9FC0F0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div><h2>Adresse</h2><p>7 Rue des Prés, 91100 Villabé — Essonne, Île-de-France.</p></div>
+        </div>
+        <div class="access__fact" data-reveal="up" style="--rd:60ms">
+          <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#9FC0F0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="15" height="12" rx="2"/><path d="M16 10h3l3 3v5h-6z"/><circle cx="6" cy="18.5" r="1.6"/><circle cx="18.5" cy="18.5" r="1.6"/></svg>
+          <div><h2>Accès routier</h2><p>Le cabinet se situe dans l'agglomération Évry Centre Essonne. Il est accessible par l'autoroute A6, la Nationale 7 et la Francilienne N104.</p></div>
+        </div>
+        <div class="access__fact" data-reveal="up" style="--rd:120ms">
+          <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#9FC0F0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <div><h2>Depuis Paris</h2><p>Villabé est au cœur du cirque naturel de l'Essonne, à 19 minutes de Paris – Porte d'Orléans (données DRIF 2014).</p></div>
+        </div>
+        <div class="access__fact" data-reveal="up" style="--rd:180ms">
+          <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#9FC0F0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9a4 4 0 0 1 0 8H8v10"/><path d="M8 11h6"/></svg>
+          <div><h2>Parking &amp; PMR</h2><p>Un parking est disponible à proximité. Le cabinet réserve une zone de stationnement aux personnes à mobilité réduite.</p></div>
+        </div>
+      </div>
+      <div class="access__map" data-reveal="scale">
+        <iframe src="https://www.google.com/maps?q=7+Rue+des+Pr%C3%A9s,+91100+Villab%C3%A9&output=embed" title="Localisation du cabinet à Villabé" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer" id="contact">
+    <div class="footgrid">
+      <div style="max-width:34ch;">
+        <div style="display:flex; align-items:center; gap:13px; margin-bottom:20px;">
+          <img src="images/logo-white.svg" alt="Cabinet Dentaire Villabé" style="height:52px; width:auto;">
+          <div style="display:flex; flex-direction:column; line-height:1.12;">
+            <span style="font-weight:800; font-size:19px; letter-spacing:-0.01em;">VILLABÉ</span>
+            <span style="font-weight:600; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#9FC0F0;">Cabinet Dentaire</span>
+          </div>
+        </div>
+        <p style="font-size:14px; line-height:1.65; color:rgba(255,255,255,0.6);">Cabinet de chirurgie et de médecine bucco-dentaire à Villabé, en Essonne.</p>
+        <a href="tel:0160862971" style="display:inline-flex; align-items:center; gap:12px; margin-top:24px; text-decoration:none;">
+          <span style="width:42px; height:42px; flex:none; border-radius:11px; background:rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9FC0F0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <span style="display:flex; flex-direction:column; line-height:1.15;"><span style="font-size:10.5px; color:rgba(255,255,255,0.55); letter-spacing:0.04em;">Appelez-nous</span><span style="font-size:17px; font-weight:700; color:#fff;">01 60 86 29 71</span></span>
+        </a>
+      </div>
+      <div>
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#9FC0F0; margin-bottom:16px;">Adresse</div>
+        <div style="font-size:14.5px; line-height:2; color:rgba(255,255,255,0.8);">7 Rue des Prés<br>91100 Villabé<br>Essonne, Île-de-France</div>
+      </div>
+      <div>
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#9FC0F0; margin-bottom:16px;">Horaires</div>
+        <div style="font-size:14.5px; line-height:2; color:rgba(255,255,255,0.8);">Lun – Ven&nbsp;: 9h–13h / 14h–20h<br>Samedi&nbsp;: 9h – 13h<br>Dimanche&nbsp;: fermé</div>
+      </div>
+      <div>
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#9FC0F0; margin-bottom:16px;">Navigation</div>
+        <div style="display:flex; flex-direction:column; gap:11px;">
+          <a href="index.html#soins" class="flink" style="font-size:14.5px; color:rgba(255,255,255,0.8); text-decoration:none; transition:color .2s ease;">Soins &amp; Prothèses</a>
+          <a href="index.html#cabinet" class="flink" style="font-size:14.5px; color:rgba(255,255,255,0.8); text-decoration:none; transition:color .2s ease;">Le Cabinet</a>
+          <a href="equipe.html" class="flink" style="font-size:14.5px; color:rgba(255,255,255,0.8); text-decoration:none; transition:color .2s ease;">L'Équipe</a>
+          <a href="histoire.html" class="flink" style="font-size:14.5px; color:rgba(255,255,255,0.8); text-decoration:none; transition:color .2s ease;">Histoire</a>
+          <a href="demarche-qualitative.html" class="flink" style="font-size:14.5px; color:rgba(255,255,255,0.8); text-decoration:none; transition:color .2s ease;">Démarche qualitative</a>
+          <a href="demarche-therapeutique.html" class="flink" style="font-size:14.5px; color:rgba(255,255,255,0.8); text-decoration:none; transition:color .2s ease;">Démarche thérapeutique</a>
+          <a href="acces.html" class="flink" style="font-size:14.5px; color:rgba(255,255,255,0.8); text-decoration:none; transition:color .2s ease;">Accès</a>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px; padding-top:26px;">
+      <span style="font-size:12.5px; color:rgba(255,255,255,0.42);">© 2026 Cabinet Toupenay-Sougoumarin — Villabé.</span>
+      <div style="display:flex; gap:24px;">
+        <a href="#" class="flink" style="font-size:12.5px; color:rgba(255,255,255,0.5); text-decoration:none;">Mentions légales</a>
+        <a href="#" class="flink" style="font-size:12.5px; color:rgba(255,255,255,0.5); text-decoration:none;">Confidentialité</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script src="js/lenis.min.js"></script>
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var D = document;
+
+  function initLenis() {
+    if (reduce || !window.Lenis) return;
+    var lenis = new Lenis({
+      duration: 1.15,
+      easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.6
+    });
+    function loop(time) { lenis.raf(time); requestAnimationFrame(loop); }
+    requestAnimationFrame(loop);
+    Array.prototype.slice.call(D.querySelectorAll('a[href^="#"]')).forEach(function (a) {
+      var href = a.getAttribute('href');
+      if (href.length < 2) return;
+      a.addEventListener('click', function (e) {
+        var t = D.querySelector(href);
+        if (t) { e.preventDefault(); lenis.scrollTo(t, { offset: -80 }); }
+      });
+    });
+  }
+
+  function initReveal() {
+    var els = Array.prototype.slice.call(D.querySelectorAll('[data-reveal]'));
+    if (!els.length) return;
+    els.forEach(function (e) {
+      var p = e.parentElement;
+      while (p && !p.hasAttribute('data-stagger')) p = p.parentElement;
+      if (p && !e.style.getPropertyValue('--rd')) {
+        var sibs = Array.prototype.slice.call(p.querySelectorAll('[data-reveal]'));
+        var step = parseInt(p.getAttribute('data-stagger'), 10) || 80;
+        e.style.setProperty('--rd', (sibs.indexOf(e) * step) + 'ms');
+      }
+    });
+    if (reduce || !('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('is-in'); }); return; }
+    var io = new IntersectionObserver(function (ents) {
+      ents.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); } });
+    }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (e) { io.observe(e); });
+  }
+
+  function boot() {
+    try { initLenis(); } catch (e) {}
+    try { initReveal(); } catch (e) {}
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
+})();
+</script>
+</body>
+</html>

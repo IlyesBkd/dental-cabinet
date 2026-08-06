@@ -209,6 +209,68 @@
   @media (max-width: 880px) { .faq__inner { grid-template-columns: 1fr; gap: 30px; } .faq__aside { position: static; } }
 
   /* =====================================================================
+     DÉMARCHES — lignes texte + image (qualitative & thérapeutique)
+     ===================================================================== */
+  .rowfeat { position: relative; padding: clamp(56px,7vw,108px) clamp(22px,5vw,80px); }
+  .rowfeat__head { max-width: 1180px; margin: 0 auto clamp(48px,6vw,84px); }
+  .rowfeat__head .eyebrow { color: var(--blue2); }
+  .rowfeat__head h2 { margin-top: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: -.025em; line-height: .98; color: #fff; font-size: clamp(30px,3.8vw,52px); max-width: 20ch; }
+  .rowfeat__head p { margin-top: 18px; max-width: 62ch; color: rgba(255,255,255,.7); font-size: clamp(15px,1.3vw,17px); line-height: 1.65; }
+  .rowfeat__list { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: clamp(52px,7vw,92px); }
+  .rowitem { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(32px,5vw,64px); align-items: center; }
+  .rowitem--rev .rowitem__media { order: 2; }
+  .rowitem__media { position: relative; border-radius: 22px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 34px 64px -32px rgba(0,0,0,.55); background: rgba(255,255,255,.05); }
+  .rowitem__media img { width: 100%; height: 100%; object-fit: cover; }
+  .rowitem__num { font-family: monospace; font-size: 13px; color: var(--blue-l); margin-bottom: 14px; display: block; }
+  .rowitem__body h3 { font-size: clamp(21px,2.2vw,30px); font-weight: 700; color: #fff; letter-spacing: -.01em; }
+  .rowitem__body p { margin-top: 14px; color: rgba(255,255,255,.7); font-size: 15.5px; line-height: 1.72; max-width: 52ch; }
+  .rowitem__body p + p { margin-top: 12px; }
+  @media (max-width: 820px) { .rowitem, .rowitem--rev { grid-template-columns: 1fr; } .rowitem--rev .rowitem__media { order: 0; } }
+
+  /* Table honoraires — carte verre, même esprit que la FAQ */
+  .pricecard { max-width: 1180px; margin: clamp(52px,7vw,92px) auto 0; border-radius: 22px; padding: clamp(10px,1.6vw,20px) clamp(18px,2.4vw,30px);
+    background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+    backdrop-filter: blur(16px) saturate(1.1); -webkit-backdrop-filter: blur(16px) saturate(1.1); }
+  .pricecard__head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 14px 2px 18px; }
+  .pricecard__head h3 { font-size: clamp(17px,1.7vw,20px); font-weight: 700; color: #fff; }
+  .pricecard__head span { font-size: 12.5px; color: rgba(255,255,255,.5); }
+  .pricerow { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 16px 2px; border-top: 1px solid rgba(255,255,255,.1); }
+  .pricerow span:first-child { font-size: 15px; color: rgba(255,255,255,.85); }
+  .pricerow b { font-size: 16px; color: var(--blue-l); font-weight: 700; white-space: nowrap; }
+  .pricecard__note { padding: 16px 2px 4px; font-size: 12.5px; line-height: 1.6; color: rgba(255,255,255,.5); border-top: 1px solid rgba(255,255,255,.1); margin-top: 4px; }
+
+  /* =====================================================================
+     ACCÈS — infos + carte
+     ===================================================================== */
+  .access__inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(36px,5vw,72px); align-items: start; }
+  .access__facts { display: flex; flex-direction: column; gap: clamp(26px,3vw,34px); }
+  .access__fact { display: flex; gap: 16px; }
+  .access__fact svg { flex: none; width: 42px; height: 42px; border-radius: 12px; background: rgba(255,255,255,.08); padding: 10px; box-sizing: border-box; }
+  .access__fact h3 { font-size: 15.5px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .access__fact p { font-size: 14.5px; line-height: 1.65; color: rgba(255,255,255,.68); max-width: 46ch; }
+  .access__map { position: relative; border-radius: 22px; overflow: hidden; aspect-ratio: 4/3.1; box-shadow: 0 34px 64px -32px rgba(0,0,0,.55); background: rgba(255,255,255,.05); }
+  .access__map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; filter: grayscale(.15) contrast(1.05); }
+  @media (max-width: 900px) { .access__inner { grid-template-columns: 1fr; } .access__map { order: -1; } }
+
+  /* =====================================================================
+     ÉQUIPE — showcase vidéo interview (format portrait, style Konbini)
+     ===================================================================== */
+  .teamvid { max-width: 1180px; margin: 0 auto clamp(56px,7vw,92px); display: grid; grid-template-columns: .62fr 1.38fr; gap: clamp(32px,5vw,64px); align-items: center; }
+  .teamvid__phone { position: relative; width: min(280px,100%); margin: 0 auto; aspect-ratio: 9/16; border-radius: 34px; padding: 9px; background: #050c18; box-shadow: 0 40px 80px -30px rgba(0,0,0,.7); }
+  .teamvid__screen { position: relative; width: 100%; height: 100%; border-radius: 26px; overflow: hidden; background: #000; }
+  .teamvid__screen video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .teamvid__notch { position: absolute; top: 9px; left: 50%; transform: translateX(-50%); width: 74px; height: 18px; background: #050c18; border-radius: 10px; z-index: 4; }
+  .teamvid__badge { position: absolute; top: 20px; left: 14px; right: 14px; z-index: 3; display: flex; align-items: center; gap: 7px; font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #fff; background: rgba(10,25,47,.55); backdrop-filter: blur(6px); border-radius: 20px; padding: 6px 10px; width: fit-content; }
+  .teamvid__badge i { width: 6px; height: 6px; border-radius: 50%; background: #ff5a5a; display: inline-block; }
+  .teamvid__caption { position: absolute; left: 14px; right: 14px; bottom: 46px; z-index: 3; font-size: 14px; font-weight: 800; line-height: 1.35; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,.6); }
+  .teamvid__mute { position: absolute; right: 12px; bottom: 12px; z-index: 3; width: 32px; height: 32px; border-radius: 50%; border: 0; background: rgba(10,25,47,.6); backdrop-filter: blur(6px); color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 14px; }
+  .teamvid__veil { position: absolute; inset: 0; z-index: 2; background: linear-gradient(180deg, rgba(0,0,0,.25) 0%, transparent 22%, transparent 62%, rgba(0,0,0,.75) 100%); pointer-events: none; }
+  .teamvid__copy .eyebrow { color: var(--blue2); }
+  .teamvid__copy h3 { margin-top: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: -.02em; line-height: 1; color: #fff; font-size: clamp(24px,2.8vw,38px); max-width: 16ch; }
+  .teamvid__copy p { margin-top: 16px; max-width: 54ch; color: rgba(255,255,255,.68); font-size: 15px; line-height: 1.7; }
+  @media (max-width: 780px) { .teamvid { grid-template-columns: 1fr; } }
+
+  /* =====================================================================
      FOOTER
      ===================================================================== */
   .site-footer { background: #06101F; color: #fff; padding: clamp(48px,6vw,84px) clamp(22px,7vw,110px) clamp(26px,3vw,38px); }
@@ -230,12 +292,12 @@
       </div>
     </div>
     <nav class="navcenter" style="flex:1; display:flex; align-items:stretch; position:relative;">
-      <a href="#cabinet" class="nav-active" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:600; color:#fff; text-decoration:none; background:#24487A; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:6; transition:background .2s ease;">Le cabinet</a>
-      <a href="#equipe" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#1E406E; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:5; transition:background .2s ease, color .2s ease;">L'équipe</a>
-      <a href="#histoire" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#193760; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:4; transition:background .2s ease, color .2s ease;">Histoire</a>
-      <a href="#" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#142E51; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:3; transition:background .2s ease, color .2s ease;">Démarche qualitative</a>
-      <a href="#" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#0F2541; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:2; transition:background .2s ease, color .2s ease;">Démarche thérapeutique</a>
-      <a href="#" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#0A192F; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:1; transition:background .2s ease, color .2s ease;">Accès</a>
+      <a href="index.html#cabinet" class="nav-active" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:600; color:#fff; text-decoration:none; background:#24487A; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:6; transition:background .2s ease;">Le cabinet</a>
+      <a href="equipe.html" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#1E406E; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:5; transition:background .2s ease, color .2s ease;">L'équipe</a>
+      <a href="histoire.html" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#193760; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:4; transition:background .2s ease, color .2s ease;">Histoire</a>
+      <a href="demarche-qualitative.html" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#142E51; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:3; transition:background .2s ease, color .2s ease;">Démarche qualitative</a>
+      <a href="demarche-therapeutique.html" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#0F2541; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:2; transition:background .2s ease, color .2s ease;">Démarche thérapeutique</a>
+      <a href="acces.html" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#0A192F; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:1; transition:background .2s ease, color .2s ease;">Accès</a>
     </nav>
     <div style="flex:none; margin-left:auto; display:flex; align-items:center; gap:8px; padding:0 16px;">
       <a href="mailto:contact@villabe-dental.fr" class="icon-tab" style="width:40px; height:40px; border-radius:10px; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; text-decoration:none; transition:background .2s ease;">
@@ -338,47 +400,6 @@
     </div>
   </section>
 
-  <!-- ============ HISTOIRE — frise chronologique ============ -->
-  <section class="story" id="histoire" aria-label="Histoire du cabinet">
-    <div class="story__head">
-      <span class="eyebrow" data-reveal="up">Notre histoire</span>
-      <h2 data-reveal="up" style="--rd:60ms">Au cœur de Villabé<br>depuis des décennies</h2>
-      <p data-reveal="up" style="--rd:140ms">Un cabinet qui n'a cessé de grandir au service de votre santé bucco-dentaire.</p>
-    </div>
-    <div class="story__line" data-stagger="120">
-      <div class="story__item">
-        <div class="story__year" data-reveal="up">2005</div>
-        <div class="story__body" data-reveal="up"><h3>Une structure de plus de 400 m²</h3><p>Le Dr Vital et le Dr Toupenay s'engagent vers une structure médicale dédiée à la chirurgie dentaire et à la médecine bucco-dentaire.</p></div>
-      </div>
-      <div class="story__item">
-        <div class="story__year" data-reveal="up">2018</div>
-        <div class="story__body" data-reveal="up"><h3>Le Dr Sougoumarin rejoint le cabinet</h3><p>Pour pérenniser et renforcer l'offre de soins bucco-dentaires proposée aux patients.</p></div>
-      </div>
-      <div class="story__item">
-        <div class="story__year" data-reveal="up">2021</div>
-        <div class="story__body" data-reveal="up"><h3>L'arrivée du Dr Garnier-Nguyen</h3><p>L'équipe soignante s'agrandit pour accompagner toujours plus de patients.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 4. L'ÉQUIPE (associés + équipe, niveau unique) ============ -->
-  <section class="team" id="equipe" aria-label="L'équipe" tabindex="-1">
-    <span id="praticien" style="position:absolute; margin-top:-90px;" aria-hidden="true"></span>
-    <div class="team__head">
-      <h2 data-reveal="up">L'équipe<br>du cabinet</h2>
-      <p data-reveal="up" style="--rd:100ms">Praticiens et assistantes vous accompagnent à chaque étape de votre prise en charge, dans une même exigence de soin.</p>
-    </div>
-    <div class="team__grid" data-stagger="80">
-      <article class="tcard" data-reveal="scale"><img src="images/steve_toupenay.jpg" alt="Portrait du Dr Steve Toupenay"><div class="tcard__info"><b>Dr Steve Toupenay</b><span>Spécialiste bucco-dentaire · Associé</span></div></article>
-      <article class="tcard" data-reveal="scale"><img src="images/dr_sougoumarin.jpg" alt="Portrait du Dr Dharani Sougoumarin"><div class="tcard__info"><b>Dr Dharani Sougoumarin</b><span>Chirurgien-dentiste · Associé</span></div></article>
-      <article class="tcard" data-reveal="scale"><img src="images/garnier.jpg" alt="Dr Thomas Garnier-Nguyen"><div class="tcard__info"><b>Dr Thomas Garnier-Nguyen</b><span>Spécialiste · Implantologie</span></div></article>
-      <article class="tcard" data-reveal="scale"><img src="images/narima.jpg" alt="Narima"><div class="tcard__info"><b>Narima</b><span>Assistante dentaire · Administratif</span></div></article>
-      <article class="tcard" data-reveal="scale"><img src="images/charlene.jpg" alt="Charlène"><div class="tcard__info"><b>Charlène</b><span>Assistante dentaire · Expertises judiciaires</span></div></article>
-      <article class="tcard" data-reveal="scale"><img src="images/jessica.jpg" alt="Jessica"><div class="tcard__info"><b>Jessica</b><span>Assistante dentaire · Logistique</span></div></article>
-      <article class="tcard" data-reveal="scale"><img src="images/leyla.jpg" alt="Leyla"><div class="tcard__info"><b>Leyla</b><span>Agent d'entretien</span></div></article>
-    </div>
-  </section>
-
   <!-- ============ FAQ — questions fréquentes ============ -->
   <section class="faq" id="faq" aria-label="Questions fréquentes">
     <video class="faq__video" data-bg src="https://videos.pexels.com/video-files/18203708/18203708-hd_1920_1080_60fps.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
@@ -452,10 +473,13 @@
       <div>
         <div style="font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#9FC0F0; margin-bottom:16px;">Navigation</div>
         <div style="display:flex; flex-direction:column; gap:11px;">
-          <a href="#soins" class="flink" style="font-size:14.5px; color:rgba(255,255,255,0.8); text-decoration:none; transition:color .2s ease;">Soins &amp; Prothèses</a>
-          <a href="#cabinet" class="flink" style="font-size:14.5px; color:rgba(255,255,255,0.8); text-decoration:none; transition:color .2s ease;">Le Cabinet</a>
-          <a href="#equipe" class="flink" style="font-size:14.5px; color:rgba(255,255,255,0.8); text-decoration:none; transition:color .2s ease;">L'Équipe</a>
-          <a href="#histoire" class="flink" style="font-size:14.5px; color:rgba(255,255,255,0.8); text-decoration:none; transition:color .2s ease;">Histoire</a>
+          <a href="index.html#soins" class="flink" style="font-size:14.5px; color:rgba(255,255,255,0.8); text-decoration:none; transition:color .2s ease;">Soins &amp; Prothèses</a>
+          <a href="index.html#cabinet" class="flink" style="font-size:14.5px; color:rgba(255,255,255,0.8); text-decoration:none; transition:color .2s ease;">Le Cabinet</a>
+          <a href="equipe.html" class="flink" style="font-size:14.5px; color:rgba(255,255,255,0.8); text-decoration:none; transition:color .2s ease;">L'Équipe</a>
+          <a href="histoire.html" class="flink" style="font-size:14.5px; color:rgba(255,255,255,0.8); text-decoration:none; transition:color .2s ease;">Histoire</a>
+          <a href="demarche-qualitative.html" class="flink" style="font-size:14.5px; color:rgba(255,255,255,0.8); text-decoration:none; transition:color .2s ease;">Démarche qualitative</a>
+          <a href="demarche-therapeutique.html" class="flink" style="font-size:14.5px; color:rgba(255,255,255,0.8); text-decoration:none; transition:color .2s ease;">Démarche thérapeutique</a>
+          <a href="acces.html" class="flink" style="font-size:14.5px; color:rgba(255,255,255,0.8); text-decoration:none; transition:color .2s ease;">Accès</a>
         </div>
       </div>
     </div>
@@ -751,6 +775,18 @@
     start();
   }
 
+  /* ---------- Carte vidéo interview (équipe) : bascule son ---------- */
+  function initTeamVideo() {
+    var btn = D.querySelector('[data-mute-toggle]');
+    if (!btn) return;
+    var video = btn.closest('.teamvid__screen').querySelector('video');
+    btn.addEventListener('click', function () {
+      video.muted = !video.muted;
+      btn.textContent = video.muted ? '🔇' : '🔊';
+      if (!video.muted) video.play().catch(function () {});
+    });
+  }
+
   /* ---------- FAQ accordéon ---------- */
   function initFaq() {
     var items = Array.prototype.slice.call(D.querySelectorAll('.faq__item'));
@@ -791,6 +827,7 @@
     try { initCounters(); } catch (e) {}
     try { initVideos(); } catch (e) {}
     try { initHeroCarousel(); } catch (e) {}
+    try { initTeamVideo(); } catch (e) {}
     try { initFaq(); } catch (e) {}
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
