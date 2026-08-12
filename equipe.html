@@ -56,8 +56,8 @@
   /* =====================================================================
      5. L'ÉQUIPE — grille N&B → couleur
      ===================================================================== */
-  .team { background: var(--navy2); padding: clamp(120px,14vw,168px) clamp(22px,5vw,80px) clamp(52px,6vw,96px); }
-  .team__head { max-width: 1180px; margin: 0 auto clamp(36px,5vw,60px); display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .team { background: var(--navy2); padding: clamp(52px,6.5vw,86px) clamp(22px,5vw,80px) clamp(52px,6vw,96px); }
+  .team__head { max-width: 1180px; margin: 0 auto clamp(26px,3.2vw,42px); display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
   .team__head .eyebrow { color: var(--blue2); }
   .team__head h1 { margin-top: 14px; font-size: clamp(28px,3.4vw,48px); font-weight: 800; text-transform: uppercase; letter-spacing: -.02em; line-height: 1; color: #fff; max-width: 16ch; }
   .team__head p { font-size: 15px; line-height: 1.6; color: rgba(255,255,255,.65); max-width: 38ch; }
@@ -93,18 +93,15 @@
   @media (max-width: 860px) { .prac__grid, .prac__grid--rev { grid-template-columns: 1fr; gap: 32px; } .prac__grid--rev .prac__media { order: 0; } }
 
   /* =====================================================================
-     ÉQUIPE — showcase vidéo interview (format portrait, style Konbini)
+     ÉQUIPE — showcase vidéo de présentation (format paysage 16/9)
      ===================================================================== */
-  .teamvid { max-width: 1180px; margin: 0 auto clamp(56px,7vw,92px); display: grid; grid-template-columns: .62fr 1.38fr; gap: clamp(32px,5vw,64px); align-items: center; }
-  .teamvid__phone { position: relative; width: min(280px,100%); margin: 0 auto; aspect-ratio: 9/16; border-radius: 34px; padding: 9px; background: #050c18; box-shadow: 0 40px 80px -30px rgba(0,0,0,.7); }
-  .teamvid__screen { position: relative; width: 100%; height: 100%; border-radius: 26px; overflow: hidden; background: #000; }
+  .teamvid { max-width: 1180px; margin: 0 auto clamp(48px,6vw,84px); display: grid; grid-template-columns: 1.25fr .75fr; gap: clamp(28px,4vw,56px); align-items: center; }
+  .teamvid__player { position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 18px; overflow: hidden; background: #000; border: 1px solid rgba(255,255,255,.1); box-shadow: 0 34px 68px -34px rgba(0,0,0,.6); }
+  .teamvid__screen { position: absolute; inset: 0; }
   .teamvid__screen video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .teamvid__notch { position: absolute; top: 9px; left: 50%; transform: translateX(-50%); width: 74px; height: 18px; background: #050c18; border-radius: 10px; z-index: 4; }
-  .teamvid__badge { position: absolute; top: 20px; left: 14px; right: 14px; z-index: 3; display: flex; align-items: center; gap: 7px; font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #fff; background: rgba(10,25,47,.55); backdrop-filter: blur(6px); border-radius: 20px; padding: 6px 10px; width: fit-content; }
-  .teamvid__badge i { width: 6px; height: 6px; border-radius: 50%; background: #ff5a5a; display: inline-block; }
-  .teamvid__caption { position: absolute; left: 14px; right: 14px; bottom: 46px; z-index: 3; font-size: 14px; font-weight: 800; line-height: 1.35; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,.6); }
-  .teamvid__mute { position: absolute; right: 12px; bottom: 12px; z-index: 3; width: 32px; height: 32px; border-radius: 50%; border: 0; background: rgba(10,25,47,.6); backdrop-filter: blur(6px); color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 14px; }
-  .teamvid__veil { position: absolute; inset: 0; z-index: 2; background: linear-gradient(180deg, rgba(0,0,0,.25) 0%, transparent 22%, transparent 62%, rgba(0,0,0,.75) 100%); pointer-events: none; }
+  .teamvid__mute { position: absolute; right: 14px; bottom: 14px; z-index: 3; width: 36px; height: 36px; border-radius: 50%; border: 0; background: rgba(10,25,47,.6); backdrop-filter: blur(6px); color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 15px; }
+  .teamvid__mute:hover { background: rgba(10,25,47,.85); }
+  .teamvid__veil { position: absolute; inset: 0; z-index: 2; background: linear-gradient(180deg, transparent 55%, rgba(0,0,0,.45) 100%); pointer-events: none; }
   .teamvid__copy .eyebrow { color: var(--blue2); }
   .teamvid__copy h2 { margin-top: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: -.02em; line-height: 1; color: #fff; font-size: clamp(24px,2.8vw,38px); max-width: 16ch; }
   .teamvid__copy p { margin-top: 16px; max-width: 54ch; color: rgba(255,255,255,.68); font-size: 15px; line-height: 1.7; }
@@ -167,20 +164,17 @@
     </div>
 
     <div class="teamvid">
-      <div class="teamvid__phone" data-reveal="scale">
+      <div class="teamvid__player" data-reveal="scale">
         <div class="teamvid__screen">
-          <video src="https://videos.pexels.com/video-files/8558444/8558444-uhd_1440_2560_24fps.mp4" data-bg muted loop playsinline preload="none" aria-hidden="true"></video>
+          <video src="videos/cabinet.mp4" data-bg muted loop playsinline preload="none" aria-hidden="true"></video>
           <div class="teamvid__veil"></div>
-          <span class="teamvid__badge"><i></i>Exemple — format interview</span>
-          <p class="teamvid__caption">« On étudie chaque cas avec la même exigence. »</p>
           <button class="teamvid__mute" type="button" data-mute-toggle aria-label="Activer le son">🔇</button>
         </div>
-        <div class="teamvid__notch"></div>
       </div>
       <div class="teamvid__copy" data-reveal="up" style="--rd:80ms">
-        <span class="eyebrow">Nouveau format</span>
-        <h2>Bientôt : l'équipe<br>en interview</h2>
-        <p>En complément des portraits photo réalisés avec notre photographe, chaque membre de l'équipe pourra se présenter en vidéo, dans un format vertical et sous-titré proche de l'interview mobile façon Konbini. Ci-contre, un exemple de rendu pour illustrer le format — le contenu définitif sera tourné prochainement.</p>
+        <span class="eyebrow">Prochainement</span>
+        <h2>L'équipe<br>en vidéo</h2>
+        <p>En complément des portraits photo réalisés avec notre photographe, chaque membre de l'équipe pourra se présenter en vidéo. Ci-contre, un exemple de rendu pour illustrer le format — le contenu définitif sera tourné prochainement.</p>
       </div>
     </div>
 
