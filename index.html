@@ -35,6 +35,7 @@
   .nav-active:hover { background: #2C5490 !important; }
   .nav-link:hover   { background: #23477C !important; color: #fff !important; }
   .icon-tab:hover   { background: rgba(255,255,255,0.16) !important; }
+  .logo-home:hover  { background: #FFFCF2 !important; }
   .phone-cta:hover  { background: #274aa8 !important; }
   .flink:hover      { color: #fff !important; }
   @media (max-width: 1040px) { .navcenter { display: none !important; } }
@@ -265,14 +266,14 @@
 
   <!-- ============ HEADER (inchangé) ============ -->
   <header style="position:sticky; top:0; z-index:100; display:flex; align-items:stretch; height:76px; background:#0A192F; margin:0; box-shadow:0 14px 34px -22px rgba(10,25,47,0.6);">
-    <div style="flex:none; display:flex; align-items:center; gap:13px; background:#F4F0E6; padding:0 30px 0 22px; border-bottom-right-radius:26px; position:relative; z-index:7;">
+    <a href="index.html" class="logo-home" aria-label="Retour à l’accueil" style="flex:none; display:flex; align-items:center; gap:13px; background:#F4F0E6; padding:0 30px 0 22px; border-bottom-right-radius:26px; position:relative; z-index:7; text-decoration:none; transition:background .2s ease;">
       <img src="images/logo.svg" alt="Cabinet Dentaire Villabé Paris Sud" style="height:52px; width:auto;">
       <div style="width:1px; height:32px; background:rgba(10,25,47,0.18);"></div>
       <div style="display:flex; flex-direction:column; line-height:1.12;">
         <span style="font-weight:800; font-size:19px; letter-spacing:-0.01em; color:#0A192F;">VILLABÉ</span>
         <span style="font-weight:600; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#6a7686;">Cabinet Dentaire</span>
       </div>
-    </div>
+    </a>
     <nav class="navcenter" style="flex:1; display:flex; align-items:stretch; position:relative;">
       <a href="index.html#cabinet" class="nav-active" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:600; color:#fff; text-decoration:none; background:#24487A; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:6; transition:background .2s ease;">Le cabinet</a>
       <a href="equipe.html" class="nav-link" style="flex:1; display:flex; align-items:center; justify-content:center; padding:0 clamp(10px,1.1vw,20px) 0 calc(clamp(10px,1.1vw,20px) + 26px); font-size:16px; font-weight:500; color:rgba(255,255,255,0.85); text-decoration:none; background:#1E406E; border-bottom-right-radius:26px; margin-left:-26px; position:relative; z-index:5; transition:background .2s ease, color .2s ease;">L'équipe</a>
