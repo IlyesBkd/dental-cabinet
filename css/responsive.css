@@ -1,0 +1,316 @@
+/* =====================================================================
+   RESPONSIVE — feuille partagée par les six pages.
+   Chargée après le <style> de chaque page : les !important ne servent
+   qu'à reprendre la main sur les style="" posés dans le markup.
+
+   Échelle de breakpoints (une seule, cohérente sur tout le site) :
+     1400px  confort desktop        1040px  bascule menu mobile
+     1300px  retrait icônes header   820px  colonnes → 1
+     1200px  header compact          560px  très petits écrans
+   ===================================================================== */
+
+:root {
+  --hdr: 76px;            /* hauteur réelle du header, reprise par le hero */
+  --gut: clamp(18px, 5vw, 80px);
+  --tap: 44px;            /* cible tactile minimale */
+}
+
+/* ---------------------------------------------------------------------
+   0. GARDE-FOUS ANTI-DÉBORDEMENT
+   --------------------------------------------------------------------- */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { overflow-x: clip; }                 /* clip > hidden : ne casse pas position:sticky */
+@supports not (overflow: clip) { body { overflow-x: hidden; } }
+img { max-width: 100%; }
+/* les mots longs ne débordent plus des colonnes étroites */
+h1, h2, h3, h4, p, li, a, span, b, td, th, figcaption { overflow-wrap: break-word; }
+/* le tableau d'honoraires et les blocs larges restent scrollables plutôt que débordants */
+.pricecard { overflow-x: auto; }
+
+/* ---------------------------------------------------------------------
+   1. HAUTEURS D'ÉCRAN — vh → svh/dvh
+   Sur mobile, 100vh ignore la barre d'adresse : le hero se retrouve
+   tronqué et les sections épinglées sautent au scroll.
+   svh = plus petite hauteur visible → stable, jamais de saut.
+   --------------------------------------------------------------------- */
+.hero { min-height: calc(100vh - var(--hdr)) !important; }
+@supports (height: 100svh) {
+  .hpin__sticky,
+  .expand__sticky { height: 100svh !important; }
+  .hero-video { min-height: 100svh; }
+  .hero { min-height: calc(100svh - var(--hdr)) !important; }
+}
+
+/* ---------------------------------------------------------------------
+   2. HEADER — hauteur pilotée par --hdr
+   --------------------------------------------------------------------- */
+header {
+  height: var(--hdr) !important;
+  /* le header ne doit jamais provoquer de scroll horizontal */
+  max-width: 100%;
+  overflow: visible;
+}
+.logo-home { min-width: 0; }
+.logo-home img { height: clamp(38px, 3.4vw, 52px) !important; flex: none; }
+.logo-home__txt { min-width: 0; }
+.logo-home__name { font-size: clamp(16px, 1.35vw, 19px) !important; }
+/* 12px → 13px : sous 13px le libellé devient illisible sur mobile */
+.logo-home__sub { font-size: 14px !important; letter-spacing: 0.1em !important; white-space: nowrap; }
+
+/* ---------------------------------------------------------------------
+   3. NAVIGATION DESKTOP — tient réellement entre 1041px et 1920px
+   Avant : 6 libellés en nowrap + logo + icônes + CTA = 1283px minimum,
+   donc débordement de 120px en 1180 et 20px en 1280.
+   Maintenant : typo et gouttières fluides, icônes retirées sous 1300px.
+   --------------------------------------------------------------------- */
+.navcenter { min-width: 0; }
+.navcenter a {
+  /* plancher à 14px : en dessous les onglets devenaient illisibles.
+     Vérifié à la mesure — la nav tient jusqu'à 1041px avec ce plancher. */
+  font-size: clamp(14px, 1.08vw, 17.5px) !important;
+  padding-right: clamp(4px, 0.5vw, 20px) !important;
+  padding-left: calc(26px + clamp(4px, 0.5vw, 20px)) !important;
+  /* surtout PAS de min-width:0 ici : les libellés sont en nowrap, ils
+     déborderaient de leur onglet et se chevaucheraient. Chaque onglet
+     doit rester au moins aussi large que son texte. */
+}
+@media (max-width: 1300px) {
+  .headicons { display: none !important; }
+  .phone-cta { padding: 0 clamp(14px, 1.5vw, 28px) !important; }
+}
+
+/* ---------------------------------------------------------------------
+   4. CTA TÉLÉPHONE — dégressif puis icône seule
+   --------------------------------------------------------------------- */
+.phone-cta__label { font-size: 14px !important; }
+@media (max-width: 1200px) {
+  /* icône seule : on récupère ~150px, le dernier onglet de nav respire */
+  .phone-cta__txt { display: none !important; }
+  .phone-cta {
+    padding: 0 !important;
+    width: 62px;
+    justify-content: center;
+  }
+}
+
+/* ---------------------------------------------------------------------
+   5. HEADER MOBILE & TABLETTE (≤ 1040px)
+   La nav desktop était masquée sans rien en remplacement : aucune
+   navigation n'existait entre 320px et 1040px. On la remplace par un
+   bouton burger + un panneau plein écran.
+   --------------------------------------------------------------------- */
+.navburger { display: none; }
+
+@media (max-width: 1040px) {
+  :root { --hdr: 68px; }
+  .navcenter { display: none !important; }
+  .headicons { display: none !important; }
+  /* pousse CTA + burger à droite maintenant que .headicons ne le fait plus */
+  .phone-cta { margin-left: auto !important; }
+  .phone-cta {
+    width: var(--tap); min-width: var(--tap);
+    border-bottom-left-radius: 22px !important;
+  }
+  .logo-home { padding: 0 18px 0 14px !important; border-bottom-right-radius: 22px !important; gap: 10px !important; }
+  .logo-home__sep { display: none; }
+
+  .navburger {
+    display: flex; flex: none;
+    align-items: center; justify-content: center;
+    width: 56px; min-width: 56px; height: 100%;
+    background: #0A192F; border: 0; padding: 0;
+    cursor: pointer; -webkit-tap-highlight-color: transparent;
+  }
+  .navburger__box { position: relative; width: 24px; height: 16px; }
+  .navburger__box span {
+    position: absolute; left: 0; width: 100%; height: 2px; border-radius: 2px;
+    background: #fff; transition: transform .32s cubic-bezier(.2,.7,.2,1), opacity .2s ease;
+  }
+  .navburger__box span:nth-child(1) { top: 0; }
+  .navburger__box span:nth-child(2) { top: 7px; }
+  .navburger__box span:nth-child(3) { top: 14px; }
+  .navburger[aria-expanded="true"] .navburger__box span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .navburger[aria-expanded="true"] .navburger__box span:nth-child(2) { opacity: 0; }
+  .navburger[aria-expanded="true"] .navburger__box span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+}
+
+@media (max-width: 420px) {
+  :root { --hdr: 62px; }
+  .logo-home__sub { display: none; }
+  .navburger { width: var(--tap); min-width: var(--tap); }
+}
+
+/* ---------------------------------------------------------------------
+   6. PANNEAU DE NAVIGATION MOBILE
+   --------------------------------------------------------------------- */
+.mobilenav {
+  position: fixed; inset: 0; z-index: 200;
+  display: flex; flex-direction: column;
+  background: rgba(6, 16, 31, 0.92);
+  backdrop-filter: blur(18px) saturate(1.1);
+  -webkit-backdrop-filter: blur(18px) saturate(1.1);
+  opacity: 0; visibility: hidden;
+  transition: opacity .3s ease, visibility .3s ease;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+}
+.mobilenav[data-open="true"] { opacity: 1; visibility: visible; }
+.mobilenav__head {
+  flex: none; display: flex; align-items: center; justify-content: flex-end;
+  height: var(--hdr); padding: 0 12px;
+}
+.mobilenav__close {
+  width: var(--tap); height: var(--tap);
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,.08); border: 0; border-radius: 12px;
+  color: #fff; font-size: 22px; line-height: 1; cursor: pointer;
+}
+.mobilenav__close:hover { background: rgba(255,255,255,.16); }
+.mobilenav__list {
+  flex: 1 1 auto;
+  display: flex; flex-direction: column;
+  padding: clamp(8px, 2vw, 24px) clamp(20px, 6vw, 48px) 0;
+}
+.mobilenav__list a {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  min-height: 56px; padding: 14px 2px;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  color: #fff; text-decoration: none;
+  font-size: clamp(19px, 4.6vw, 26px); font-weight: 700;
+  text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.15;
+  /* les deux libellés longs ne doivent pas déborder en 320px */
+  overflow-wrap: break-word; hyphens: auto;
+  transition: color .2s ease, padding-left .2s ease;
+}
+.mobilenav__list a:hover { color: #9FC0F0; padding-left: 8px; }
+.mobilenav__list a[aria-current="page"] { color: #9FC0F0; }
+.mobilenav__list a[aria-current="page"] svg { display: none; }
+.mobilenav__list a[aria-current="page"]::after {
+  content: ""; flex: none; width: 8px; height: 8px;
+  border-radius: 50%; background: #2D6CDF;
+}
+.mobilenav__list a svg { flex: none; opacity: .45; }
+.mobilenav__foot {
+  flex: none; display: grid; gap: 12px;
+  padding: clamp(22px, 5vw, 34px) clamp(20px, 6vw, 48px) clamp(26px, 7vw, 40px);
+}
+.mobilenav__call, .mobilenav__mail {
+  display: flex; align-items: center; gap: 14px;
+  min-height: 60px; padding: 12px 18px; border-radius: 15px;
+  text-decoration: none; color: #fff;
+}
+.mobilenav__call { background: #1E3A8A; }
+.mobilenav__call:hover { background: #2D6CDF; }
+.mobilenav__mail { background: rgba(255,255,255,.08); }
+.mobilenav__mail:hover { background: rgba(255,255,255,.16); }
+.mobilenav__ico {
+  flex: none; width: 40px; height: 40px; border-radius: 11px;
+  background: rgba(255,255,255,.16);
+  display: flex; align-items: center; justify-content: center;
+}
+.mobilenav__call small, .mobilenav__mail small {
+  display: block; font-size: 13px; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.72);
+}
+.mobilenav__call b, .mobilenav__mail b {
+  display: block; font-size: 19px; font-weight: 800; letter-spacing: -.01em;
+  overflow-wrap: anywhere;
+}
+/* verrou de scroll pendant l'ouverture du panneau */
+html.nav-open, html.nav-open body { overflow: hidden !important; touch-action: none; }
+/* au-delà du breakpoint mobile le panneau ne doit jamais apparaître */
+@media (min-width: 1041px) {
+  .mobilenav { display: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mobilenav, .mobilenav__list a, .navburger__box span { transition: none !important; }
+}
+
+/* ---------------------------------------------------------------------
+   7. CIBLES TACTILES — minimum 44×44 (WCAG 2.5.5 / AA 2.5.8)
+   --------------------------------------------------------------------- */
+.icon-tab { width: var(--tap) !important; height: var(--tap) !important; }
+/* flèches du carrousel hero : 14×25px avant correction */
+#heroCarousel button[data-hero] {
+  min-width: var(--tap) !important; min-height: var(--tap) !important;
+  display: flex !important; align-items: center; justify-content: center;
+  font-size: 22px !important;
+}
+/* bouton muet du lecteur portrait (équipe) : 36×36 avant correction */
+.teamvid__mute { width: var(--tap) !important; height: var(--tap) !important; font-size: 17px !important; }
+/* liens du footer : 20px de haut à l'origine.
+   24px minimum au pointeur (WCAG 2.2 AA 2.5.8), 44px au doigt (2.5.5). */
+.site-footer a.flink { display: flex; align-items: center; min-height: 26px; }
+.footcall { min-height: var(--tap) !important; }
+.footlogo__sub { font-size: 14px !important; letter-spacing: 0.1em !important; }
+@media (max-width: 1040px) {
+  .site-footer a.flink { min-height: var(--tap); }
+  .site-footer .footgrid > div:last-child > div { gap: 0 !important; }
+}
+
+/* ---------------------------------------------------------------------
+   8. FOOTER — 4 colonnes → 2 → 1
+   --------------------------------------------------------------------- */
+@media (max-width: 980px) { .footgrid { grid-template-columns: 1fr 1fr !important; } }
+@media (max-width: 560px)  { .footgrid { grid-template-columns: 1fr !important; } }
+.site-footer .footgrid > div:first-child { max-width: 100% !important; }
+
+/* ---------------------------------------------------------------------
+   9. GALERIE SOINS ÉPINGLÉE (index) — bascule en swipe natif
+   Le scroll horizontal piloté au scroll vertical est pénible au doigt :
+   sous 900px on passe au carrousel à défilement natif (.hpin--static,
+   déjà stylé dans la page, activé par le JS de la page à ≤760px).
+   Ici on complète le rendu pour les petits écrans.
+   --------------------------------------------------------------------- */
+.hpin--static .hpin__track { scrollbar-width: none; }
+.hpin--static .hpin__track::-webkit-scrollbar { display: none; }
+@media (max-width: 760px) {
+  .hpin--static .hcard { height: min(70svh, 460px); width: min(84vw, 420px); }
+  .hpin--static .hcard--intro { height: auto; width: min(84vw, 420px); }
+  .hcard__cap { left: 20px; right: 20px; bottom: 22px; }
+}
+
+/* ---------------------------------------------------------------------
+   10. SECTIONS — passages en une colonne alignés sur l'échelle unique
+   (la page déclarait 680 / 760 / 780 / 820 / 860 / 880 / 900 au hasard)
+   --------------------------------------------------------------------- */
+@media (max-width: 1040px) {
+  .expand { height: 180vh; }
+  .expand__media { transform: scale(.94); }
+}
+@media (max-width: 820px) {
+  .prac__grid, .prac__grid--rev,
+  .faq__inner, .access__inner,
+  .rowitem, .rowitem--rev,
+  .teamvid { grid-template-columns: 1fr !important; }
+  .prac__grid--rev .prac__media,
+  .rowitem--rev .rowitem__media { order: 0 !important; }
+  .prac__copy { max-width: none !important; }
+  .faq__aside { position: static !important; }
+  .story__item { grid-template-columns: 1fr !important; gap: 8px !important; }
+  .team__head { flex-direction: column; align-items: flex-start; }
+  .expand { height: 150vh; }
+}
+@media (max-width: 560px) {
+  :root { --gut: 18px; }
+  .prac, .team, .story, .faq, .rowfeat { padding-left: 18px !important; padding-right: 18px !important; }
+  /* le filigrane géant débordait de l'écran */
+  .prac__wm { font-size: 64px !important; }
+  .prac__badge { left: 0 !important; }
+  .pricerow { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .faq__q { gap: 12px !important; }
+  .faq__a p { padding-right: 8px !important; }
+  .team__grid .tcard { flex: 1 1 100%; max-width: none; }
+  .expand { height: 130vh; }
+}
+
+/* ---------------------------------------------------------------------
+   11. TYPOGRAPHIE — plancher de lisibilité
+   --------------------------------------------------------------------- */
+@media (max-width: 560px) {
+  .hcard--intro p, .team__head p, .faq__lead,
+  .rowitem__body p, .prac__bio, .story__body p { font-size: 18px !important; line-height: 1.65 !important; }
+  .faq__a p { font-size: 18px !important; }
+  .faq__q h3 { font-size: 18px !important; }
+}
