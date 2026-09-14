@@ -125,12 +125,10 @@ header {
     transition: background .2s ease;
   }
   .navburger:hover { background: #274aa8; }
-  /* separateur avec le CTA telephone, meme traitement incruste que le
-     filet du logo : un filet court centre, pas une bordure pleine hauteur */
+  /* separateur avec le CTA telephone, sur toute la hauteur du header */
   .navburger::before {
-    content: ""; position: absolute; left: 0; top: 50%;
-    transform: translateY(-50%);
-    width: 1px; height: 28px;
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 1px;
     background: rgba(255,255,255,.28);
   }
   .navburger__box { position: relative; width: 24px; height: 16px; }
