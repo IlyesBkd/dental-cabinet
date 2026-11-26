@@ -27,8 +27,59 @@
   @keyframes floatUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
   .display { font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.98; }
   .eyebrow { display: inline-block; font-size: 16px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--blue-l); }
-  /* Vimeo background video — true cover (no letterbox bars) */
-  .hero-video { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 100vw; height: 56.25vw; min-height: 100vh; min-width: 177.78vh; border: 0; pointer-events: none; }
+  /* =====================================================================
+     HERO — vidéo plein écran du cabinet (tournage Dropbox)
+     ===================================================================== */
+  .hero { position: relative; overflow: hidden; min-height: calc(100svh - 76px); display: flex; flex-direction: column; justify-content: flex-end; padding: clamp(22px,3.4vw,56px); isolation: isolate; }
+  .hero__media { position: absolute; inset: 0; z-index: -2; background: #0A192F; }
+  .hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.04); animation: heroZoom 18s ease-out forwards; }
+  @keyframes heroZoom { to { transform: scale(1); } }
+  .hero__veil { position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(180deg, rgba(10,25,47,0.42) 0%, rgba(10,25,47,0) 20%, rgba(10,25,47,0) 50%, rgba(10,25,47,0.92) 100%); }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  .hero__content { max-width: 920px; margin-bottom: clamp(28px,4vw,56px); }
+  .hero__eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--blue-l); opacity: 0; animation: floatUp .9s .15s cubic-bezier(.2,.7,.2,1) forwards; }
+  .hero__eyebrow::before { content: ""; width: 34px; height: 2px; background: var(--blue-l); border-radius: 2px; }
+  .hero__title { margin-top: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: -.025em; line-height: .96; color: #fff; font-size: clamp(36px,4.7vw,74px); }
+  .hero__title .ln { display: block; overflow: hidden; padding-bottom: .04em; }
+  .hero__title .ln > span { display: inline-block; transform: translateY(110%); animation: heroLine 1.05s cubic-bezier(.2,.7,.2,1) forwards; }
+  .hero__title .ln:nth-child(2) > span { animation-delay: .12s; }
+  .hero__title em { font-style: normal; color: var(--blue-l); }
+  @keyframes heroLine { to { transform: translateY(0); } }
+  .hero__lead { margin-top: 22px; max-width: 46ch; font-size: clamp(18px,1.5vw,21px); line-height: 1.6; color: rgba(255,255,255,.82); opacity: 0; animation: floatUp .9s .45s cubic-bezier(.2,.7,.2,1) forwards; }
+  .hero__ctas { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px; opacity: 0; animation: floatUp .9s .6s cubic-bezier(.2,.7,.2,1) forwards; }
+  .hero__btn { display: inline-flex; align-items: center; gap: 10px; height: 56px; padding: 0 26px; border-radius: 999px; font-weight: 700; font-size: 17px; text-decoration: none; transition: background .25s ease, transform .25s ease, border-color .25s ease; }
+  .hero__btn--primary { background: var(--blue2); color: #fff; box-shadow: 0 18px 36px -16px rgba(45,108,223,.75); }
+  .hero__btn--primary:hover { background: #274aa8; transform: translateY(-2px); }
+  .hero__btn--ghost { color: #fff; border: 1px solid rgba(255,255,255,.38); background: rgba(10,25,47,.25); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+  .hero__btn--ghost:hover { border-color: #fff; background: rgba(10,25,47,.45); transform: translateY(-2px); }
+  .hero__facts { margin-top: 34px; display: flex; flex-wrap: wrap; gap: clamp(18px,3vw,44px); list-style: none; opacity: 0; animation: floatUp .9s .75s cubic-bezier(.2,.7,.2,1) forwards; }
+  .hero__facts li { display: flex; flex-direction: column; gap: 4px; padding-left: 14px; border-left: 2px solid rgba(159,192,240,.45); }
+  .hero__facts b { font-size: clamp(22px,2vw,28px); font-weight: 800; color: #fff; letter-spacing: -.01em; }
+  .hero__facts span { font-size: 15px; color: rgba(255,255,255,.66); }
+  .hero__pause { position: absolute; top: clamp(18px,2.4vw,32px); right: clamp(18px,2.4vw,32px); z-index: 4; width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255,255,255,.3); background: rgba(10,25,47,.35); color: #fff; display: grid; place-items: center; cursor: pointer; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); transition: background .2s ease; }
+  .hero__pause:hover { background: rgba(10,25,47,.65); }
+  .hero__pause:focus-visible, .hero__btn:focus-visible { outline: 3px solid var(--blue-l); outline-offset: 3px; }
+  @media (max-width: 860px) {
+    .hero__veil { background: linear-gradient(180deg, rgba(10,25,47,.5) 0%, rgba(10,25,47,.15) 30%, rgba(10,25,47,.55) 60%, rgba(10,25,47,.95) 100%); }
+    .hero__btn { flex: 1 1 auto; justify-content: center; }
+    .hero__facts li { flex: 1 1 40%; }
+  }
+  @media (max-width: 560px) {
+    .hero__eyebrow { font-size: 13px; letter-spacing: .12em; padding-right: 52px; }
+    .hero__eyebrow::before { width: 22px; }
+    .hero__lead { margin-top: 16px; font-size: 17px; }
+    .hero__ctas { margin-top: 22px; }
+    .hero__btn { height: 52px; font-size: 16px; }
+    .hero__facts { margin-top: 24px; gap: 14px; }
+    .hero__facts li:nth-child(3) { display: none; }
+    .hero__facts b { font-size: 20px; }
+    .hero__content { margin-bottom: 20px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero__video { animation: none; transform: none; }
+    .hero__title .ln > span { animation: none; transform: none; }
+    .hero__eyebrow, .hero__lead, .hero__ctas, .hero__facts { animation: none; opacity: 1; }
+  }
 
   /* ---------- header hover states ---------- */
   .navcenter a { white-space: nowrap; }
@@ -331,13 +382,22 @@
   </nav>
 
 
-  <!-- ============ HERO (inchangé) ============ -->
-  <section class="hero" style="position:relative; overflow:hidden; min-height:calc(100vh - 76px); display:flex; flex-direction:column; justify-content:flex-end; padding:clamp(22px,3vw,52px); margin:0;">
-    <div style="position:absolute; inset:0; z-index:0; overflow:hidden; background:#0A192F;">
-      <iframe class="hero-video" title="Cabinet dentaire de Villabé" src="https://player.vimeo.com/video/1108208960?dnt=1&app_id=122963&autoplay=1&muted=1&loop=1&background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  <!-- ============ HERO — vidéo du cabinet ============ -->
+  <section class="hero" aria-label="Présentation du cabinet">
+    <div class="hero__media" aria-hidden="true">
+      <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="videos/hero.jpg" disablepictureinpicture>
+        <source src="videos/hero-mobile.mp4" type="video/mp4" media="(max-width: 760px) and (orientation: portrait)">
+        <source src="videos/hero.mp4" type="video/mp4">
+      </video>
     </div>
-    <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,25,47,0.42) 0%, rgba(10,25,47,0) 20%, rgba(10,25,47,0) 50%, rgba(10,25,47,0.92) 100%); z-index:1;"></div>
-    <div class="herobottom" style="position:relative; z-index:3; display:flex; align-items:flex-end; justify-content:space-between; gap:24px; margin-top:auto;">
+    <div class="hero__veil" aria-hidden="true"></div>
+    <button class="hero__pause" type="button" data-hero-pause aria-label="Mettre la vidéo en pause" aria-pressed="false">
+      <svg data-ico="pause" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+      <svg data-ico="play" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:none"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>
+    </button>
+
+    <div class="herobottom" style="position:relative; z-index:3; display:flex; align-items:flex-end; justify-content:space-between; gap:clamp(24px,4vw,56px);">
+      <h1 class="sr-only">Cabinet dentaire de Villabé — chirurgie et médecine bucco-dentaire</h1>
       <div style="display:flex; flex-wrap:wrap; gap:9px; max-width:440px;"></div>
       <div style="flex:none; width:min(360px,100%);">
         <div id="heroCarousel" style="display:flex; align-items:center; gap:14px; margin-bottom:14px; color:rgba(255,255,255,0.9);">
@@ -356,7 +416,6 @@
             <div data-hero="tag" style="font-size:15.5px; color:#0A192F; font-weight:600;">Expert près la Cour d'Appel de Paris</div>
           </div>
         </div>
-      </div>
     </div>
   </section>
 
@@ -373,25 +432,25 @@
         </article>
 
         <article class="hcard">
-          <video class="hcard__img" data-bg src="videos/soin-soins.mp4" poster="https://images.unsplash.com/photo-1486825586573-7131f7991bdd?auto=format&fit=crop&w=1400&q=80" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <video class="hcard__img" data-bg src="videos/soin-soins-v2.mp4" poster="videos/soin-soins-v2.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
           <div class="hcard__veil"></div>
           <div class="hcard__cap"><div class="hcard__num">01 / 04</div><h3>Soins &amp; Prothèses</h3><p>Inlays, onlays, couronnes et prothèses fabriqués en France.</p></div>
         </article>
 
         <article class="hcard">
-          <video class="hcard__img" data-bg src="videos/soin-implanto.mp4" poster="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=1400&q=80" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <video class="hcard__img" data-bg src="videos/soin-implanto-v2.mp4" poster="videos/soin-implanto-v2.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
           <div class="hcard__veil"></div>
           <div class="hcard__cap"><div class="hcard__num">02 / 04</div><h3>Implantologie</h3><p>Implants et piliers posés en bloc opératoire dédié.</p></div>
         </article>
 
         <article class="hcard">
-          <video class="hcard__img" data-bg src="videos/soin-chirurgie.mp4" poster="https://images.unsplash.com/photo-1612277795421-9bc7706a4a34?auto=format&fit=crop&w=1400&q=80" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <video class="hcard__img" data-bg src="videos/soin-chirurgie-v2.mp4" poster="videos/soin-chirurgie-v2.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
           <div class="hcard__veil"></div>
           <div class="hcard__cap"><div class="hcard__num">03 / 04</div><h3>Chirurgie orale</h3><p>Extractions, dents de sagesse et greffes osseuses.</p></div>
         </article>
 
         <article class="hcard">
-          <video class="hcard__img" data-bg src="videos/soin-esthetique.mp4" poster="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1400&q=80" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <video class="hcard__img" data-bg src="videos/soin-esthetique-v2.mp4" poster="videos/soin-esthetique-v2.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
           <div class="hcard__veil"></div>
           <div class="hcard__cap"><div class="hcard__num">04 / 04</div><h3>Esthétique</h3><p>Harmoniser et sublimer la ligne du sourire.</p></div>
         </article>
@@ -405,7 +464,7 @@
   <section class="expand" id="cabinet" aria-label="Le cabinet">
     <div class="expand__sticky">
       <div class="expand__media">
-        <video data-bg src="videos/cabinet.mp4" poster="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1800&q=80" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+        <video data-bg src="videos/cabinet-v2.mp4" poster="videos/cabinet-v2.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
         <div class="expand__veil"></div>
       </div>
       <div class="expand__overlay">
@@ -435,7 +494,7 @@
 
   <!-- ============ FAQ — questions fréquentes ============ -->
   <section class="faq" id="faq" aria-label="Questions fréquentes">
-    <video class="faq__video" data-bg src="https://videos.pexels.com/video-files/18203708/18203708-hd_1920_1080_60fps.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+    <video class="faq__video" data-bg src="videos/faq-v2.mp4" poster="videos/faq-v2.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
     <div class="faq__veil" aria-hidden="true"></div>
 
     <div class="faq__inner">
@@ -736,6 +795,26 @@
     });
     if (location.hash === '#demo') setTimeout(start, 1000);
   }
+
+  /* ---------- Hero : vidéo (pause, économie de données, mouvement réduit) ---------- */
+  (function initHeroVideo() {
+    var v = D.querySelector('.hero__video'), b = D.querySelector('[data-hero-pause]');
+    if (!v || !b) return;
+    var icoP = b.querySelector('[data-ico="pause"]'), icoR = b.querySelector('[data-ico="play"]');
+    function ui(paused) {
+      icoP.style.display = paused ? 'none' : ''; icoR.style.display = paused ? '' : 'none';
+      b.setAttribute('aria-pressed', paused ? 'true' : 'false');
+      b.setAttribute('aria-label', paused ? 'Lire la vidéo' : 'Mettre la vidéo en pause');
+    }
+    var saveData = navigator.connection && navigator.connection.saveData;
+    if (reduce || saveData) { v.removeAttribute('autoplay'); v.pause(); ui(true); }
+    b.addEventListener('click', function () { if (v.paused) { v.play().catch(function () {}); ui(false); } else { v.pause(); ui(true); } });
+    // pause hors écran pour économiser batterie et processeur
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (e) {
+      if (b.getAttribute('aria-pressed') === 'true') return;
+      if (e[0].isIntersecting) v.play().catch(function () {}); else v.pause();
+    }, { threshold: 0.05 }).observe(v);
+  })();
 
   /* ---------- Hero carousel (praticiens & équipe) ---------- */
   function initHeroCarousel() {
