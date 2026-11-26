@@ -735,12 +735,19 @@
   function initVideos() {
     var vids = Array.prototype.slice.call(D.querySelectorAll('video[data-bg]'));
     if (!vids.length) return;
-    if (reduce) { vids.forEach(function (v) { try { v.pause(); } catch (e) {} }); return; }
+    // Safari : vidéos muettes et « inline » pour autoriser la lecture automatique
+    vids.forEach(function (v) { v.muted = true; v.defaultMuted = true; v.playsInline = true; v.setAttribute('playsinline', ''); });
     if (!('IntersectionObserver' in window)) { vids.forEach(function (v) { v.play().catch(function () {}); }); return; }
+    // si la lecture est bloquée (mode économie d'énergie), on relance les vidéos visibles au premier geste
+    var visibles = [];
+    ['touchstart', 'pointerdown', 'scroll'].forEach(function (ev) {
+      window.addEventListener(ev, function () { visibles.forEach(function (v) { if (v.paused) v.play().catch(function () {}); }); }, { capture: true, passive: true });
+    });
     var io = new IntersectionObserver(function (ents) {
       ents.forEach(function (en) {
-        if (en.isIntersecting) { en.target.play().catch(function () {}); }
-        else { try { en.target.pause(); } catch (e) {} }
+        var i = visibles.indexOf(en.target);
+        if (en.isIntersecting) { if (i < 0) visibles.push(en.target); en.target.play().catch(function () {}); }
+        else { if (i >= 0) visibles.splice(i, 1); try { en.target.pause(); } catch (e) {} }
       });
     }, { threshold: 0.15 });
     vids.forEach(function (v) { io.observe(v); });
@@ -832,13 +839,26 @@
       b.setAttribute('aria-pressed', paused ? 'true' : 'false');
       b.setAttribute('aria-label', paused ? 'Lire la vidéo' : 'Mettre la vidéo en pause');
     }
-    var saveData = navigator.connection && navigator.connection.saveData;
-    if (reduce || saveData) { v.removeAttribute('autoplay'); v.pause(); ui(true); }
-    b.addEventListener('click', function () { if (v.paused) { v.play().catch(function () {}); ui(false); } else { v.pause(); ui(true); } });
+    // Safari : la lecture automatique exige une vidéo muette et « inline », posées aussi en propriétés
+    v.muted = true; v.defaultMuted = true; v.playsInline = true;
+    v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.setAttribute('webkit-playsinline', '');
+    function start() { if (b.getAttribute('aria-pressed') === 'true') return; var p = v.play(); if (p && p.catch) p.catch(unlock); }
+    // si Safari bloque (mode économie d'énergie), on relance au premier toucher / défilement / clic
+    var unlocked = false;
+    function unlock() {
+      if (unlocked) return; unlocked = true;
+      var go = function () { ['touchstart', 'pointerdown', 'scroll', 'keydown', 'click'].forEach(function (ev) { window.removeEventListener(ev, go, true); }); v.play().catch(function () {}); };
+      ['touchstart', 'pointerdown', 'scroll', 'keydown', 'click'].forEach(function (ev) { window.addEventListener(ev, go, { capture: true, passive: true }); });
+    }
+    start();
+    v.addEventListener('loadeddata', start);
+    v.addEventListener('canplay', start);
+    D.addEventListener('visibilitychange', function () { if (!D.hidden) start(); });
+    b.addEventListener('click', function () { if (v.paused) { ui(false); v.play().catch(function () {}); } else { v.pause(); ui(true); } });
     // pause hors écran pour économiser batterie et processeur
     if ('IntersectionObserver' in window) new IntersectionObserver(function (e) {
       if (b.getAttribute('aria-pressed') === 'true') return;
-      if (e[0].isIntersecting) v.play().catch(function () {}); else v.pause();
+      if (e[0].isIntersecting) start(); else v.pause();
     }, { threshold: 0.05 }).observe(v);
   })();
 

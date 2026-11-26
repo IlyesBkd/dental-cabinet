@@ -413,12 +413,19 @@
   function initVideos() {
     var vids = Array.prototype.slice.call(D.querySelectorAll('video[data-bg]'));
     if (!vids.length) return;
-    if (reduce) { vids.forEach(function (v) { try { v.pause(); } catch (e) {} }); return; }
+    // Safari : vidéos muettes et « inline » pour autoriser la lecture automatique
+    vids.forEach(function (v) { v.muted = true; v.defaultMuted = true; v.playsInline = true; v.setAttribute('playsinline', ''); });
     if (!('IntersectionObserver' in window)) { vids.forEach(function (v) { v.play().catch(function () {}); }); return; }
+    // si la lecture est bloquée (mode économie d'énergie), on relance les vidéos visibles au premier geste
+    var visibles = [];
+    ['touchstart', 'pointerdown', 'scroll'].forEach(function (ev) {
+      window.addEventListener(ev, function () { visibles.forEach(function (v) { if (v.paused && v.muted) v.play().catch(function () {}); }); }, { capture: true, passive: true });
+    });
     var io = new IntersectionObserver(function (ents) {
       ents.forEach(function (en) {
-        if (en.isIntersecting) { en.target.play().catch(function () {}); }
-        else { try { en.target.pause(); } catch (e) {} }
+        var i = visibles.indexOf(en.target);
+        if (en.isIntersecting) { if (i < 0) visibles.push(en.target); en.target.play().catch(function () {}); }
+        else { if (i >= 0) visibles.splice(i, 1); try { en.target.pause(); } catch (e) {} }
       });
     }, { threshold: 0.15 });
     vids.forEach(function (v) { io.observe(v); });
