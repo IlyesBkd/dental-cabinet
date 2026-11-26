@@ -75,6 +75,7 @@
   .footgrid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: clamp(28px,4vw,56px); padding-bottom: 46px; border-bottom: 1px solid rgba(255,255,255,0.12); }
 </style>
 <link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/galerie.css">
 </head>
 <body>
 
@@ -175,6 +176,22 @@
     </div>
   </section>
 
+
+  <!-- ============ GALERIE — À votre arrivée ============ -->
+  <section class="gal" id="arrivee" aria-label="À votre arrivée">
+    <div class="gal__head">
+      <div>
+        <span class="eyebrow" data-reveal="up">À votre arrivée</span>
+        <h2 data-reveal="up">L'accueil<br>et les salles d'attente</h2>
+      </div>
+    </div>
+    <div class="gal__grid gal__grid--3" data-stagger="60">
+      <button type="button" class="gal__item gal__item--wide" data-full="images/galerie/acces-accueil-1800.jpg" data-reveal="scale"><img src="images/galerie/acces-accueil-900.jpg" srcset="images/galerie/acces-accueil-900.jpg 900w, images/galerie/acces-accueil-1800.jpg 1800w" sizes="(max-width: 860px) 50vw, 33vw" width="4240" height="2832" alt="L'accueil du cabinet" loading="lazy" decoding="async"><span class="gal__cap">L'accueil du cabinet</span></button>
+      <button type="button" class="gal__item" data-full="images/galerie/acces-couloir-1800.jpg" data-reveal="scale"><img src="images/galerie/acces-couloir-900.jpg" srcset="images/galerie/acces-couloir-900.jpg 900w, images/galerie/acces-couloir-1800.jpg 1800w" sizes="(max-width: 860px) 50vw, 33vw" width="4240" height="2832" alt="Le couloir des salles de soins" loading="lazy" decoding="async"><span class="gal__cap">Le couloir des salles de soins</span></button>
+      <button type="button" class="gal__item" data-full="images/galerie/acces-salle-attente-1800.jpg" data-reveal="scale"><img src="images/galerie/acces-salle-attente-900.jpg" srcset="images/galerie/acces-salle-attente-900.jpg 900w, images/galerie/acces-salle-attente-1800.jpg 1800w" sizes="(max-width: 860px) 50vw, 33vw" width="4240" height="2832" alt="La salle d'attente du rez-de-chaussée" loading="lazy" decoding="async"><span class="gal__cap">La salle d'attente du rez-de-chaussée</span></button>
+      <button type="button" class="gal__item gal__item--wide" data-full="images/galerie/acces-salle-attente-etage-1800.jpg" data-reveal="scale"><img src="images/galerie/acces-salle-attente-etage-900.jpg" srcset="images/galerie/acces-salle-attente-etage-900.jpg 900w, images/galerie/acces-salle-attente-etage-1800.jpg 1800w" sizes="(max-width: 860px) 50vw, 33vw" width="4240" height="2832" alt="La salle d'attente de l'étage" loading="lazy" decoding="async"><span class="gal__cap">La salle d'attente de l'étage</span></button>
+    </div>
+  </section>
   <!-- ============ FOOTER ============ -->
   <footer class="site-footer" id="contact">
     <div class="footgrid">
@@ -280,5 +297,6 @@
 })();
 </script>
 <script src="js/nav.js" defer></script>
+<script src="js/galerie.js" defer></script>
 </body>
 </html>

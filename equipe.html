@@ -117,6 +117,7 @@
   .footgrid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: clamp(28px,4vw,56px); padding-bottom: 46px; border-bottom: 1px solid rgba(255,255,255,0.12); }
 </style>
 <link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/galerie.css">
 </head>
 <body>
 
@@ -292,6 +293,24 @@
     </div>
   </section>
 
+
+  <!-- ============ GALERIE — L'équipe au quotidien ============ -->
+  <section class="gal" id="quotidien" aria-label="L'équipe au quotidien">
+    <div class="gal__head">
+      <div>
+        <span class="eyebrow" data-reveal="up">Au quotidien</span>
+        <h2 data-reveal="up">L'équipe<br>au travail</h2>
+      </div>
+    </div>
+    <div class="gal__grid gal__grid--4" data-stagger="60">
+      <button type="button" class="gal__item gal__item--wide" data-full="images/galerie/equipe-dr-toupenay-1800.jpg" data-reveal="scale"><img src="images/galerie/equipe-dr-toupenay-900.jpg" srcset="images/galerie/equipe-dr-toupenay-900.jpg 900w, images/galerie/equipe-dr-toupenay-1800.jpg 1800w" sizes="(max-width: 860px) 50vw, 33vw" width="4240" height="2832" alt="Le Dr Toupenay à son bureau" loading="lazy" decoding="async"><span class="gal__cap">Le Dr Toupenay à son bureau</span></button>
+      <button type="button" class="gal__item" data-full="images/galerie/equipe-bloc-1800.jpg" data-reveal="scale"><img src="images/galerie/equipe-bloc-900.jpg" srcset="images/galerie/equipe-bloc-900.jpg 900w, images/galerie/equipe-bloc-1800.jpg 1800w" sizes="(max-width: 860px) 50vw, 33vw" width="4240" height="2832" alt="Les praticiens au bloc opératoire" loading="lazy" decoding="async"><span class="gal__cap">Les praticiens au bloc opératoire</span></button>
+      <button type="button" class="gal__item" data-full="images/galerie/equipe-assistante-empreinte-1800.jpg" data-reveal="scale"><img src="images/galerie/equipe-assistante-empreinte-900.jpg" srcset="images/galerie/equipe-assistante-empreinte-900.jpg 900w, images/galerie/equipe-assistante-empreinte-1800.jpg 1800w" sizes="(max-width: 860px) 50vw, 33vw" width="4240" height="2832" alt="Une assistante réalise une empreinte optique" loading="lazy" decoding="async"><span class="gal__cap">Une assistante réalise une empreinte optique</span></button>
+      <button type="button" class="gal__item gal__item--wide" data-full="images/galerie/equipe-secretariat-1800.jpg" data-reveal="scale"><img src="images/galerie/equipe-secretariat-900.jpg" srcset="images/galerie/equipe-secretariat-900.jpg 900w, images/galerie/equipe-secretariat-1800.jpg 1800w" sizes="(max-width: 860px) 50vw, 33vw" width="4240" height="2832" alt="Le secrétariat" loading="lazy" decoding="async"><span class="gal__cap">Le secrétariat</span></button>
+      <button type="button" class="gal__item" data-full="images/galerie/equipe-osteopathe-1800.jpg" data-reveal="scale"><img src="images/galerie/equipe-osteopathe-900.jpg" srcset="images/galerie/equipe-osteopathe-900.jpg 900w, images/galerie/equipe-osteopathe-1800.jpg 1800w" sizes="(max-width: 860px) 50vw, 33vw" width="4240" height="2832" alt="L'ostéopathe du cabinet" loading="lazy" decoding="async"><span class="gal__cap">L'ostéopathe du cabinet</span></button>
+      <button type="button" class="gal__item" data-full="images/galerie/equipe-osteopathe-consultation-1800.jpg" data-reveal="scale"><img src="images/galerie/equipe-osteopathe-consultation-900.jpg" srcset="images/galerie/equipe-osteopathe-consultation-900.jpg 900w, images/galerie/equipe-osteopathe-consultation-1800.jpg 1800w" sizes="(max-width: 860px) 50vw, 33vw" width="4240" height="2832" alt="Consultation d'ostéopathie" loading="lazy" decoding="async"><span class="gal__cap">Consultation d'ostéopathie</span></button>
+    </div>
+  </section>
   <!-- ============ FOOTER ============ -->
   <footer class="site-footer" id="contact">
     <div class="footgrid">
@@ -428,5 +447,6 @@
 })();
 </script>
 <script src="js/nav.js" defer></script>
+<script src="js/galerie.js" defer></script>
 </body>
 </html>

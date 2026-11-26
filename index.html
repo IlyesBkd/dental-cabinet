@@ -313,6 +313,7 @@
   .footgrid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: clamp(28px,4vw,56px); padding-bottom: 46px; border-bottom: 1px solid rgba(255,255,255,0.12); }
 </style>
 <link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/galerie.css">
 </head>
 <body>
 
@@ -474,6 +475,32 @@
     </div>
   </section>
 
+
+  <!-- ============ GALERIE — Visite du cabinet ============ -->
+  <section class="gal" id="visite" aria-label="Visite du cabinet">
+    <div class="gal__head">
+      <div>
+        <span class="eyebrow" data-reveal="up">Visite du cabinet</span>
+        <h2 data-reveal="up">Le cabinet<br>en images</h2>
+      </div>
+    </div>
+    <div class="gal__grid" data-stagger="60">
+      <button type="button" class="gal__item gal__item--big" data-full="images/galerie/salle-de-soins-fauteuil-1800.jpg" data-reveal="scale"><img src="images/galerie/salle-de-soins-fauteuil-900.jpg" srcset="images/galerie/salle-de-soins-fauteuil-900.jpg 900w, images/galerie/salle-de-soins-fauteuil-1800.jpg 1800w" sizes="(max-width: 860px) 50vw, 33vw" width="4240" height="2832" alt="Salle de soins et son équipement" loading="lazy" decoding="async"><span class="gal__cap">Salle de soins et son équipement</span></button>
+      <button type="button" class="gal__item" data-full="images/galerie/microscope-operatoire-1800.jpg" data-reveal="scale"><img src="images/galerie/microscope-operatoire-900.jpg" srcset="images/galerie/microscope-operatoire-900.jpg 900w, images/galerie/microscope-operatoire-1800.jpg 1800w" sizes="(max-width: 860px) 50vw, 33vw" width="4240" height="2832" alt="Microscope opératoire Leica" loading="lazy" decoding="async"><span class="gal__cap">Microscope opératoire Leica</span></button>
+      <button type="button" class="gal__item gal__item--tall" data-full="images/galerie/bloc-operatoire-intervention-1800.jpg" data-reveal="scale"><img src="images/galerie/bloc-operatoire-intervention-900.jpg" srcset="images/galerie/bloc-operatoire-intervention-900.jpg 900w, images/galerie/bloc-operatoire-intervention-1800.jpg 1800w" sizes="(max-width: 860px) 50vw, 33vw" width="2832" height="4240" alt="Intervention au bloc opératoire" loading="lazy" decoding="async"><span class="gal__cap">Intervention au bloc opératoire</span></button>
+      <button type="button" class="gal__item" data-full="images/galerie/salle-orthodontie-1800.jpg" data-reveal="scale"><img src="images/galerie/salle-orthodontie-900.jpg" srcset="images/galerie/salle-orthodontie-900.jpg 900w, images/galerie/salle-orthodontie-1800.jpg 1800w" sizes="(max-width: 860px) 50vw, 33vw" width="4240" height="2832" alt="Salle d'orthodontie" loading="lazy" decoding="async"><span class="gal__cap">Salle d'orthodontie</span></button>
+      <button type="button" class="gal__item gal__item--wide" data-full="images/galerie/empreinte-optique-1800.jpg" data-reveal="scale"><img src="images/galerie/empreinte-optique-900.jpg" srcset="images/galerie/empreinte-optique-900.jpg 900w, images/galerie/empreinte-optique-1800.jpg 1800w" sizes="(max-width: 860px) 50vw, 33vw" width="4240" height="2832" alt="Empreinte optique sur une patiente" loading="lazy" decoding="async"><span class="gal__cap">Empreinte optique sur une patiente</span></button>
+      <button type="button" class="gal__item" data-full="images/galerie/modele-orthodontique-1800.jpg" data-reveal="scale"><img src="images/galerie/modele-orthodontique-900.jpg" srcset="images/galerie/modele-orthodontique-900.jpg 900w, images/galerie/modele-orthodontique-1800.jpg 1800w" sizes="(max-width: 860px) 50vw, 33vw" width="4240" height="2832" alt="Modèle orthodontique" loading="lazy" decoding="async"><span class="gal__cap">Modèle orthodontique</span></button>
+      <button type="button" class="gal__item" data-full="images/galerie/salle-empreinte-numerique-1800.jpg" data-reveal="scale"><img src="images/galerie/salle-empreinte-numerique-900.jpg" srcset="images/galerie/salle-empreinte-numerique-900.jpg 900w, images/galerie/salle-empreinte-numerique-1800.jpg 1800w" sizes="(max-width: 860px) 50vw, 33vw" width="4240" height="2832" alt="Salle d'empreinte numérique" loading="lazy" decoding="async"><span class="gal__cap">Salle d'empreinte numérique</span></button>
+      <button type="button" class="gal__item gal__item--wide" data-full="images/galerie/radio-panoramique-cs8100-1800.jpg" data-reveal="scale"><img src="images/galerie/radio-panoramique-cs8100-900.jpg" srcset="images/galerie/radio-panoramique-cs8100-900.jpg 900w, images/galerie/radio-panoramique-cs8100-1800.jpg 1800w" sizes="(max-width: 860px) 50vw, 33vw" width="4240" height="2832" alt="Radiographie panoramique Carestream CS 8100" loading="lazy" decoding="async"><span class="gal__cap">Radiographie panoramique Carestream CS 8100</span></button>
+      <button type="button" class="gal__item" data-full="images/galerie/instruments-rotatifs-1800.jpg" data-reveal="scale"><img src="images/galerie/instruments-rotatifs-900.jpg" srcset="images/galerie/instruments-rotatifs-900.jpg 900w, images/galerie/instruments-rotatifs-1800.jpg 1800w" sizes="(max-width: 860px) 50vw, 33vw" width="4240" height="2832" alt="Instruments de soin" loading="lazy" decoding="async"><span class="gal__cap">Instruments de soin</span></button>
+      <button type="button" class="gal__item" data-full="images/galerie/sterilisation-autoclave-1800.jpg" data-reveal="scale"><img src="images/galerie/sterilisation-autoclave-900.jpg" srcset="images/galerie/sterilisation-autoclave-900.jpg 900w, images/galerie/sterilisation-autoclave-1800.jpg 1800w" sizes="(max-width: 860px) 50vw, 33vw" width="4240" height="2832" alt="Salle de stérilisation" loading="lazy" decoding="async"><span class="gal__cap">Salle de stérilisation</span></button>
+      <button type="button" class="gal__item gal__item--wide" data-full="images/galerie/salle-attente-etage-1800.jpg" data-reveal="scale"><img src="images/galerie/salle-attente-etage-900.jpg" srcset="images/galerie/salle-attente-etage-900.jpg 900w, images/galerie/salle-attente-etage-1800.jpg 1800w" sizes="(max-width: 860px) 50vw, 33vw" width="4240" height="2832" alt="Salle d'attente de l'étage" loading="lazy" decoding="async"><span class="gal__cap">Salle d'attente de l'étage</span></button>
+      <button type="button" class="gal__item gal__item--wide" data-full="images/galerie/salle-de-soins-microscope-1800.jpg" data-reveal="scale"><img src="images/galerie/salle-de-soins-microscope-900.jpg" srcset="images/galerie/salle-de-soins-microscope-900.jpg 900w, images/galerie/salle-de-soins-microscope-1800.jpg 1800w" sizes="(max-width: 860px) 50vw, 33vw" width="4240" height="2832" alt="Salle de soins équipée d’un microscope" loading="lazy" decoding="async"><span class="gal__cap">Salle de soins équipée d’un microscope</span></button>
+      <button type="button" class="gal__item gal__item--wide" data-full="images/galerie/accueil-orthodontie-chirurgie-1800.jpg" data-reveal="scale"><img src="images/galerie/accueil-orthodontie-chirurgie-900.jpg" srcset="images/galerie/accueil-orthodontie-chirurgie-900.jpg 900w, images/galerie/accueil-orthodontie-chirurgie-1800.jpg 1800w" sizes="(max-width: 860px) 50vw, 33vw" width="4240" height="2832" alt="Accueil orthodontie et chirurgie dentaire" loading="lazy" decoding="async"><span class="gal__cap">Accueil orthodontie et chirurgie dentaire</span></button>
+      <button type="button" class="gal__item gal__item--wide" data-full="images/galerie/osteopathie-cabinet-1800.jpg" data-reveal="scale"><img src="images/galerie/osteopathie-cabinet-900.jpg" srcset="images/galerie/osteopathie-cabinet-900.jpg 900w, images/galerie/osteopathie-cabinet-1800.jpg 1800w" sizes="(max-width: 860px) 50vw, 33vw" width="4240" height="2832" alt="Cabinet d'ostéopathie" loading="lazy" decoding="async"><span class="gal__cap">Cabinet d'ostéopathie</span></button>
+    </div>
+  </section>
   <!-- ============ 4. L'ÉQUIPE (associés + équipe, niveau unique) ============ -->
   <section class="team" id="equipe" aria-label="L'équipe" tabindex="-1">
     <span id="praticien" style="position:absolute; margin-top:-90px;" aria-hidden="true"></span>
@@ -948,5 +975,6 @@
 })();
 </script>
 <script src="js/nav.js" defer></script>
+<script src="js/galerie.js" defer></script>
 </body>
 </html>
