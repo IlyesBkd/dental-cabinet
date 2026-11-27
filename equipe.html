@@ -108,7 +108,10 @@
   .teamvid__copy .eyebrow { color: var(--blue2); }
   .teamvid__copy h2 { margin-top: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: -.02em; line-height: 1; color: #fff; font-size: clamp(24px,2.8vw,38px); max-width: 16ch; }
   .teamvid__copy p { margin-top: 16px; max-width: 54ch; color: rgba(255,255,255,.68); font-size: 21px; line-height: 1.75; }
-  @media (max-width: 780px) { .teamvid { grid-template-columns: 1fr; } }
+  .teamvid--rev { grid-template-columns: .65fr 1.35fr; }
+  .teamvid--rev .teamvid__player { order: 2; }
+  .teamvid__itw { background: #000; }
+  @media (max-width: 780px) { .teamvid, .teamvid--rev { grid-template-columns: 1fr; } .teamvid--rev .teamvid__player { order: 0; } }
 
   /* =====================================================================
      FOOTER
@@ -200,16 +203,28 @@
     <div class="teamvid">
       <div class="teamvid__player" data-reveal="scale">
         <div class="teamvid__screen">
-          <video src="videos/film-cabinet.mp4" poster="videos/film-cabinet.jpg" data-bg muted loop playsinline preload="none" aria-hidden="true"></video>
-          <div class="teamvid__veil"></div>
-          <button class="teamvid__mute" type="button" data-mute-toggle aria-label="Activer le son">🔇</button>
+          <video class="teamvid__itw" src="videos/presentation-cabinet.mp4" poster="videos/presentation-cabinet.jpg" controls playsinline preload="metadata" aria-label="Le Dr Toupenay présente le cabinet"></video>
         </div>
       </div>
       <div class="teamvid__copy" data-reveal="up" style="--rd:80ms">
-        <span class="eyebrow">Le film du cabinet</span>
-        <h2>Le cabinet<br>en vidéo</h2>
-        <p>Accueil, salles de soins, bloc opératoire, imagerie et empreinte numérique&nbsp;: découvrez en deux minutes le cabinet et l'équipe au travail. Activez le son pour profiter du film.</p>
+        <span class="eyebrow">Présentation du cabinet</span>
+        <h2>Le Dr Toupenay<br>présente le cabinet</h2>
+        <p>Les spécialités, l'organisation des étages, les blocs opératoires et les projets à venir&nbsp;: une visite commentée de la maison des chirurgiens-dentistes de Villabé.</p>
       </div>
+    </div>
+
+    <div class="teamvid teamvid--rev">
+      <div class="teamvid__player" data-reveal="scale">
+        <div class="teamvid__screen">
+          <video class="teamvid__itw" src="videos/interview-dr-toupenay.mp4" poster="videos/interview-dr-toupenay.jpg" controls playsinline preload="metadata" aria-label="Interview du Dr Toupenay"></video>
+        </div>
+      </div>
+      <div class="teamvid__copy" data-reveal="up" style="--rd:80ms">
+        <span class="eyebrow">Interview</span>
+        <h2>Une prise en charge<br>humaine</h2>
+        <p>Plus de trente ans d'histoire, un plateau technique de près de 400&nbsp;m² et une équipe de praticiens et d'assistantes&nbsp;: le Dr Toupenay raconte l'esprit du cabinet.</p>
+      </div>
+    </div>
     </div>
 
     <div class="prac">
@@ -443,11 +458,18 @@
     });
   }
 
+  /* ---------- 4. Interviews : une seule vidéo à la fois ---------- */
+  function initInterviews() {
+    var v = Array.prototype.slice.call(D.querySelectorAll('.teamvid__itw'));
+    v.forEach(function (a) { a.addEventListener('play', function () { v.forEach(function (b) { if (b !== a) b.pause(); }); }); });
+  }
+
   function boot() {
     try { initLenis(); } catch (e) {}
     try { initReveal(); } catch (e) {}
     try { initVideos(); } catch (e) {}
     try { initTeamVideo(); } catch (e) {}
+    try { initInterviews(); } catch (e) {}
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
